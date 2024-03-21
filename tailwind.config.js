@@ -1,22 +1,25 @@
 module.exports = {
   content: [
-    "./components/**/*.{js,vue,ts}",
-    "./layouts/**/*.vue",
-    "./pages/**/*.vue",
-    "./plugins/**/*.{js,ts}",
-    "./app.vue",
-    "./error.vue",
+    './components/**/*.{js,vue,ts}',
+    './layouts/**/*.vue',
+    './pages/**/*.vue',
+    './plugins/**/*.{js,ts}',
+    './app.vue',
+    './error.vue',
   ],
   theme: {
     screens: {
-      sm: "640px",
-      md: "768px",
-      lg: "1024px",
-      xl: "1280px",
-      "2xl": "1536px",
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+      '2xl': '1536px',
     },
     colors: {
-      primary: "#F1AF09",
+      primary: '#F1AF09',
+      'sec-gray': '#CCCCCC',
+      white: '#fff',
+      transparent: 'transparent',
     },
     container: {
       center: true,
@@ -24,4 +27,4 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-};
+}

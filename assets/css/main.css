@@ -1,10 +1,32 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@layer base {
+  @font-face {
+    font-family: 'dana-regular';
+    src: url('/assets/fonts/DanaFaNum-Regular.ttf');
+  }
+  @font-face {
+    font-family: 'dana-light';
+    src: url('/assets/fonts/DanaFaNum-Light.ttf');
+  }
+  @font-face {
+    font-family: 'dana-medium';
+    src: url('/assets/fonts/DanaFaNum-Medium.ttf');
+  }
+  @font-face {
+    font-family: 'dana-bold';
+    src: url('/assets/fonts/DanaFaNum-Bold.ttf');
+  }
+}
 
 * {
   direction: rtl;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+body {
+  font-family: 'dana-regular';
+  overflow-x: hidden;
 }
