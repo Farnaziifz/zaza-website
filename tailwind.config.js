@@ -20,6 +20,7 @@ module.exports = {
       'sec-gray': '#CCCCCC',
       white: '#fff',
       transparent: 'transparent',
+      'light-success': '#C9F9D1',
     },
     container: {
       center: true,

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import serach from '../Icons/serach.vue'
-import user from '../Icons/user.vue'
 </script>
 
 <template>

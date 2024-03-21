@@ -18,6 +18,10 @@
     font-family: 'dana-bold';
     src: url('/assets/fonts/DanaFaNum-Bold.ttf');
   }
+  @font-face {
+    font-family: 'dana-demi';
+    src: url('/assets/fonts/DanaFaNum-DemiBold.ttf');
+  }
 }
 
 * {
