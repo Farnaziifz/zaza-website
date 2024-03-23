@@ -22,6 +22,10 @@
     font-family: 'dana-demi';
     src: url('/assets/fonts/DanaFaNum-DemiBold.ttf');
   }
+  @font-face {
+    font-family: 'dana-extra';
+    src: url('/assets/fonts/DanaFaNum-ExtraBold.ttf');
+  }
 }
 
 * {

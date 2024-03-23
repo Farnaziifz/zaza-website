@@ -3,6 +3,7 @@ type CardProps = {
   title: string
   text: string
   buttonText: string
+  shortDesc: string
 }
 
 const props = defineProps<CardProps>()
@@ -17,6 +18,7 @@ const props = defineProps<CardProps>()
         <p class="text-[#007737] font-[dana-demi]">{{ props.title }}</p>
       </div>
       <div class="px-3 mt-4">{{ props.text }}</div>
+      <div class="px-3 mt-2">{{ shortDesc }}</div>
     </div>
     <div class="flex justify-end w-full p-3">
       <button class="bg-primary p-2 rounded text-xs">
