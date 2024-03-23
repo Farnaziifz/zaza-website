@@ -3,6 +3,7 @@ import man1 from '@/assets/images/man/man-1.png'
 import DropDown from '@/components/shared/DropDown/index.vue'
 
 const cat1Options = ref([{ id: 1, label: 'استخر' }])
+const cat2Options = ref([{ id: 1, label: 'لوله' }])
 </script>
 
 <template>
@@ -21,12 +22,11 @@ const cat1Options = ref([{ id: 1, label: 'استخر' }])
               دنبال چه محصولی میگردید؟
             </p>
             <div class="grid grid-cols-3 gap-4 mt-7">
-              <div>
-                <DropDown
-                  title="انتخاب دسته‌بندی اصلی"
-                  :options="cat1Options"
-                />
-              </div>
+              <DropDown title="انتخاب دسته‌بندی اصلی" :options="cat1Options" />
+              <DropDown title="انتخاب دسته‌بندی دوم" :options="cat2Options" />
+              <button class="focus:outline-none bg-primary rounded px-4 py-3">
+                انتخاب
+              </button>
             </div>
           </div>
         </div>
