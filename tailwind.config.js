@@ -21,6 +21,7 @@ module.exports = {
       white: '#fff',
       transparent: 'transparent',
       'light-success': '#C9F9D1',
+      'text-gray': '#828181',
     },
     container: {
       center: true,

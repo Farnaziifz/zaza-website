@@ -1,0 +1,26 @@
+<script lang="ts" setup>
+type BlogProps = {
+  img: string
+  title: string
+  date: string
+  id: string | number
+}
+
+const props = defineProps<BlogProps>()
+</script>
+
+<template>
+  <div class="w-full flex flex-col cursor-pointer">
+    <img :src="img" alt="" />
+    <p class="mt-3 font-[dana-medium] text-lg">{{ props.title }}</p>
+    <div class="flex mt-2">
+      <div class="flex items-center">
+        <p class="text-sm text-text-gray">icon</p>
+        <p class="mr-2 text-sm text-text-gray">{{ props.date }}</p>
+      </div>
+
+      <div class="w-px h-6 bg-sec-gray mx-2"></div>
+      <p class="text-sm text-text-gray ">بیشتر بخوانید</p>
+    </div>
+  </div>
+</template>
