@@ -5,7 +5,7 @@
     </h2>
     <Swiper
       :modules="[SwiperAutoplay, SwiperPagination]"
-      :slides-per-view="6"
+      :slides-per-view="4"
       :loop="true"
       :pagination="{
         el: '.custom-pagination',

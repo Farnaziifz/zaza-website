@@ -4,9 +4,13 @@ import temp2 from '@/assets/images/temp/2.png'
 </script>
 
 <template>
-  <div class="container grid grid-cols-3 gap-4">
+  <div class="container grid lg:grid-cols-3 grid-cols-1 gap-4 gap-y-20">
     <div>
-      <h3 class="head-title font-[dana-extra] text-[32px]">بیشترین فروش</h3>
+      <h3
+        class="head-title font-[dana-extra] lg:text-[32px] w-full lg:bg-white bg-primary lg:text-right text-center py-4 text-lg"
+      >
+        بیشترین فروش
+      </h3>
       <div class="mt-10 flex flex-col gap-y-6">
         <MiniProductCard
           name="صفحه اهنبر مینی"
@@ -29,7 +33,11 @@ import temp2 from '@/assets/images/temp/2.png'
       </div>
     </div>
     <div>
-      <h3 class="head-title font-[dana-extra] text-[32px]">حراج واقعی</h3>
+      <h3
+        class="head-title font-[dana-extra] lg:text-[32px] w-full lg:bg-white bg-primary lg:text-right text-center py-4 text-lg"
+      >
+        حراج واقعی
+      </h3>
       <div class="mt-10 flex flex-col gap-y-6">
         <MiniProductCard
           name="صفحه اهنبر مینی"
@@ -55,7 +63,11 @@ import temp2 from '@/assets/images/temp/2.png'
       </div>
     </div>
     <div>
-      <h3 class="head-title font-[dana-extra] text-[32px]">قیمت اقتصادی</h3>
+      <h3
+        class="head-title font-[dana-extra] lg:text-[32px] w-full lg:bg-white bg-primary lg:text-right text-center py-4 text-lg"
+      >
+        قیمت اقتصادی
+      </h3>
       <div class="mt-10 flex flex-col gap-y-6">
         <MiniProductCard
           name="صفحه اهنبر مینی"
@@ -86,10 +98,13 @@ import temp2 from '@/assets/images/temp/2.png'
   &::before {
     content: '';
     position: absolute;
-    height: 3px;
-    width: 80px;
+
     background-color: #fcba2e;
     bottom: -8px;
+    @media screen and (min-width: 1024px) {
+      height: 3px;
+      width: 80px;
+    }
   }
 }
 </style>

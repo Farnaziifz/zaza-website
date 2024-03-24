@@ -7,13 +7,13 @@ import icon1 from '@/assets/images/temp/1.png'
     <div class="flex flex-col col-span-2">
       <p class="font-[dana-medium] text-md">استخر و لوله کشی</p>
       <div>
-        <p class="font-[dana-light] text-sm text-sec-gray mb-1">
+        <p class="font-[dana-light] text-sm text-text-gray mb-1">
           تجهیزات استخر و سونا و جکوزی
         </p>
-        <p class="font-[dana-light] text-sm text-sec-gray mb-1">
+        <p class="font-[dana-light] text-sm text-text-gray mb-1">
           تجهیزات استخر و سونا و جکوزی
         </p>
-        <p class="font-[dana-light] text-sm text-sec-gray">
+        <p class="font-[dana-light] text-sm text-text-gray">
           تجهیزات استخر و سونا و جکوزی
         </p>
         <div>

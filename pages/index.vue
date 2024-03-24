@@ -11,11 +11,13 @@ import BrandSection from '@/components/specific/HomePage/BrandSection/index.vue'
 <template>
   <div class="mt-14">
     <HereSection />
-    <!-- <SharedCardsZazaFeature class="mt-14" />
-    <ProductCategorySection class="mt-14" />
+    <SharedCardsZazaFeature class="mt-14" />
+    <ProductCategorySection class="mt-14 hidden lg:block" />
     <ContactorSection class="mt-14" />
+    <ProductCategorySection class="mt-14 block lg:hidden" />
+
     <SpecialProductSection class="mt-14" />
     <BlogSection class="mt-14" />
-    <BrandSection class="mt-14" /> -->
+    <BrandSection class="mt-14" />
   </div>
 </template>

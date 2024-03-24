@@ -3,7 +3,7 @@ import ZazaFeatureCard from '@/components/shared/Cards/ZazaFeature/index.vue'
 </script>
 
 <template>
-  <div class="container grid grid-cols-4 gap-4">
+  <div class="container grid lg:grid-cols-4  grid-cols-1 gap-4 px-2">
     <ZazaFeatureCard
       title="چرا باید به زازا اعتماد کنیم؟"
       text="دارای نشان 'اینماد' از وزارت صنعت، معدن و تجارت"

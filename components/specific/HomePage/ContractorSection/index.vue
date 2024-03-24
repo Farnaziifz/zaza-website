@@ -4,21 +4,39 @@ import mainBg from '@/assets/images/main-bg.png'
 </script>
 
 <template>
-  <div class="grid grid-cols-2 gap-4 container">
-    <div>
-      <img :src="man2" alt="" />
-    </div>
-    <div class="flex flex-col justify-center h-full items-center">
-      <p class="font-[dana-bold] text-[32px]">دنبال متخصص میگردید؟</p>
-      <p class="font-[dana-bold] text-[24px] mt-12">
-        برترین متخصصین در سراسر کشور را اینجا میتونید پیدا کنید
-      </p>
-      <button class="bg-primary p-4 focus:outline-none rounded mt-12">
-        انتخاب متخصص
-      </button>
+  <div class="container">
+    <div class="grid lg:grid-cols-2 gap-4">
+      <div class="block lg:hidden mt-14">
+        <p class="font-[dana-bold] text-[32px] text-center">
+          دنبال متخصص میگردید؟
+        </p>
+        <p class="font-[dana-bold] text-[24px] mt-12 text-center">
+          برترین متخصصین در سراسر کشور را اینجا میتونید پیدا کنید
+        </p>
+      </div>
+
+      <div>
+        <img :src="man2" alt="" />
+      </div>
+      <div class="flex flex-col justify-center h-full items-center">
+        <div class="hidden lg:block">
+          <p class="font-[dana-bold] text-[32px] text-center">
+            دنبال متخصص میگردید؟
+          </p>
+          <p class="font-[dana-bold] text-[24px] mt-12 text-center">
+            برترین متخصصین در سراسر کشور را اینجا میتونید پیدا کنید
+          </p>
+        </div>
+        <button
+          class="bg-primary p-4 focus:outline-none lg:rounded -mt-10 lg:mt-10 w-full lg:w-auto"
+        >
+          انتخاب متخصص
+        </button>
+      </div>
     </div>
   </div>
-  <div class="w-full relative">
+
+  <div class="w-full relative hidden lg:block">
     <img :src="mainBg" alt="" class="w-full" />
     <div class="absolute top-0 right-0 w-full grid grid-cols-2 gap-4 h-full">
       <div></div>

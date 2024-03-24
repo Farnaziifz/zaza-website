@@ -11,16 +11,16 @@ const props = defineProps<CardProps>()
 
 <template>
   <div
-    class="w-full h-[350px] rounded border-sec-gray border shadow-lg flex flex-col justify-between"
+    class="w-full lg:h-[350px] rounded border-sec-gray border shadow-lg flex flex-col justify-between"
   >
     <div>
-      <div class="py-1 px-2 w-fit rounded-ee-lg bg-[#C9F9D1] rounded-ss-sm">
-        <p class="text-[#007737] font-[dana-demi]">{{ props.title }}</p>
+      <div class="lg:py-1 py-4 px-2 w-fit rounded-ee-lg bg-[#C9F9D1] rounded-ss-sm hidden lg:block">
+        <p class="text-[#007737] font-[dana-demi] ">{{ props.title }}</p>
       </div>
-      <div class="px-3 mt-4">{{ props.text }}</div>
-      <div class="px-3 mt-2">{{ shortDesc }}</div>
+      <div class="px-3 mt-4 text-center lg:text-right">{{ props.text }}</div>
+      <div class="px-3 mt-2 hidden lg:block">{{ shortDesc }}</div>
     </div>
-    <div class="flex justify-end w-full p-3">
+    <div class="flex lg:justify-end justify-center lg:mt-1 mt-5 w-full p-3">
       <button class="bg-primary p-2 rounded text-xs">
         {{ props.buttonText }}
       </button>
