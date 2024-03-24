@@ -5,11 +5,11 @@ import serach from '../Icons/serach.vue'
 <template>
   <div>
     <div class="container">
-      <div class="flex justify-between items-center flex-1">
+      <div class="flex lg:justify-between items-center flex-1 justify-center">
         <div>
           <img src="@/assets/images/logo.svg" alt="" />
         </div>
-        <div class="w-full h-[60px]">
+        <div class="w-full h-[60px] hidden lg:block">
           <div
             class="border h-full rounded mx-8 border-sec-gray flex items-center"
           >
@@ -26,46 +26,61 @@ import serach from '../Icons/serach.vue'
             </button>
           </div>
         </div>
-        <div class="w-full flex-1">
+        <div class="w-full flex-1 hidden lg:block">
           <div class="w-10 h-10"><user /></div>
           <div class="w-10 h-10"><user /></div>
         </div>
       </div>
     </div>
     <div class="border-b border-t border-sec-gray h-12">
-      <div class="container flex w-full justify-between items-center h-full">
+      <div
+        class="container flex w-full justify-around lg:justify-between items-center h-full"
+      >
         <div class="h-full flex items-center">
           <button
-            class="h-full w-44 bg-primary text-white flex items-center justify-center"
+            class="h-full w-44 bg-primary text-white flex items-center justify-center hidden lg:block"
           >
             دسته بندی کالا
           </button>
-          <div class="mr-2">
+          <div class="mr-2 hidden lg:block">
             <span>icon</span>
             <span class="mr-1 font-[dana-light]">پر فروش‌ترین‌ها</span>
           </div>
-          <div class="mr-2">
+          <div class="mr-2 hidden lg:block">
             <span>icon</span>
             <span class="mr-1 font-[dana-light]">تخفیف‌ها</span>
           </div>
-          <div class="mr-2">
+          <div class="mr-2 hidden lg:block">
             <span>icon</span>
             <span class="mr-1 font-[dana-light]">متخصصین</span>
           </div>
-          <div class="h-8 bg-sec-gray w-px mx-2"></div>
+          <div class="h-8 bg-sec-gray w-px mx-2 hidden lg:block"></div>
           <div class="mr-2">
-            <span class="mr-1 font-[dana-light]">سوالی دارید؟</span>
+            <span class="mr-1 font-[dana-light] text-xs lg:text-lg"
+              >سوالی دارید؟</span
+            >
           </div>
           <div class="mr-2">
-            <span class="mr-1 font-[dana-light]">تماس با ما</span>
+            <span class="mr-1 font-[dana-light] text-xs lg:text-lg"
+              >تماس با ما</span
+            >
           </div>
           <div class="mr-2">
-            <span class="mr-1 font-[dana-light]">مجله زازا</span>
+            <span class="mr-1 font-[dana-light] text-xs lg:text-lg"
+              >مجله زازا</span
+            >
           </div>
         </div>
         <div>
-          <span class="font-[dana-medium]"> ثبت نام متخصصین</span>
+          <span class="font-[dana-medium] text-xs lg:text-lg">
+            ثبت نام متخصصین</span
+          >
         </div>
+      </div>
+      <div
+        class="lg:hidden bg-primary flex items-center justify-center py-3 font-[dana-extra] text-[24px]"
+      >
+        به زازا کالا خوش آمدید
       </div>
     </div>
   </div>
