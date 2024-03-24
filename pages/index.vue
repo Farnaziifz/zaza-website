@@ -5,6 +5,7 @@ import ProductCategorySection from '@/components/specific/HomePage/ProductCatego
 import ContactorSection from '@/components/specific/HomePage/ContractorSection/index.vue'
 import SpecialProductSection from '@/components/specific/HomePage/SpecialProductSection/index.vue'
 import BlogSection from '@/components/specific/HomePage/BlogSection/index.vue'
+import BrandSection from '@/components/specific/HomePage/BrandSection/index.vue'
 </script>
 
 <template>
@@ -15,5 +16,6 @@ import BlogSection from '@/components/specific/HomePage/BlogSection/index.vue'
     <ContactorSection class="mt-14" />
     <SpecialProductSection class="mt-14" />
     <BlogSection class="mt-14" />
+    <BrandSection class="mt-14" />
   </div>
 </template>
