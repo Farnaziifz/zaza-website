@@ -8,7 +8,7 @@ import MobileMenu from '@/components/shared/MobileMenu/index.vue'
   <div>
     <HeaderComponent />
     <slot />
-    <FooterComponent />
+    <FooterComponent/>
     <MobileMenu />
   </div>
 </template>
