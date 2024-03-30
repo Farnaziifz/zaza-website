@@ -14,7 +14,7 @@ import WonderBox from '@/components/shared/WonderBox/index.vue'
     <div class="bg-primary rounded p-2">
       <BannerLVL1 class="h-full" />
     </div>
-    <WonderBox class="mt-14"/>
+    <WonderBox class="mt-14" />
     <Contractor />
   </div>
   <div>

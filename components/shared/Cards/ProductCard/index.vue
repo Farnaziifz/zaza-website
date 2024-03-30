@@ -1,14 +1,18 @@
 <script lang="ts" setup>
 import temp5 from '@/assets/images/temp/5.png'
 type productCardProps = {
-    hasDiscount: boolean
+  hasDiscount: boolean
+  hasBorder: boolean
 }
 
 const props = defineProps<productCardProps>()
 </script>
 
 <template>
-  <div class="w-full bg-white rounded p-4">
+  <div
+    class="w-full bg-white rounded p-4 cursor-pointer"
+    :class="{ 'border border-sec-gray': hasBorder }"
+  >
     <img :src="temp5" alt="" class="mb-5" />
     <p class="mb-5 text-center text-sm font-[dana-medium]">
        سیم چین 6 اینچ میکا Mika
