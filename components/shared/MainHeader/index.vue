@@ -1,10 +1,26 @@
 <script setup lang="ts">
+import { ref } from 'vue'
 import serach from '../Icons/serach.vue'
+import MegaMenu from '@/components/shared/MegaMenu/index.vue'
+const isShowMenu = ref(false)
+
+const toggleMenu = () => {
+  isShowMenu.value = true
+}
+const hideMenu = () => {
+  isShowMenu.value = false
+}
 </script>
 
 <template>
   <div>
-    <div class="container">
+    <div class="container relative">
+      <MegaMenu
+        class="absolute top-[155px] right-0"
+        :is-show="isShowMenu"
+        @mouseover="toggleMenu"
+        @mouseleave="hideMenu"
+      />
       <div class="flex lg:justify-between items-center flex-1 justify-center">
         <div>
           <img src="@/assets/images/logo.svg" alt="" />
@@ -39,6 +55,8 @@ import serach from '../Icons/serach.vue'
         <div class="h-full flex items-center">
           <button
             class="h-full w-44 bg-primary text-white flex items-center justify-center hidden lg:block"
+            @mouseover="toggleMenu"
+            @mouseleave="hideMenu"
           >
             دسته بندی کالا
           </button>

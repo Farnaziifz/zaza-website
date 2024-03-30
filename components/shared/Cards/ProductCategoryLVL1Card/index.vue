@@ -79,5 +79,3 @@ const props = defineProps<productCatgeoryLVL1Props>()
     </div>
   </div>
 </template>
-
-<style scoped lang="scss"></style>
