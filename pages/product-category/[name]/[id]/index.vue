@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ProductCard from '@/components/shared/Cards/ProductCard/index.vue'
 import temp7 from '@/assets/images/temp/7.png'
+import CollapsibleCard from '@/components/shared/CollapsibelCard/index.vue'
 </script>
 
 <template>
@@ -44,7 +45,48 @@ import temp7 from '@/assets/images/temp/7.png'
             <div class="custom-pagination !w-auto mt-5" self-center></div>
           </div>
         </div>
-        <div class="border border-sec-gray rounded p-4 mt-5"></div>
+        <div class="border border-sec-gray rounded p-4 mt-5">
+          <CollapsibleCard title="فیلتر بر اساس کشور سازنده">
+            <div
+              class="flex items-center justify-between cursor-pointer px-4 mb-3"
+            >
+              <label for="name1">ایران</label>
+              <input type="checkbox" id="name1" class="borde-none w-4 h-4" />
+            </div>
+            <div
+              class="flex items-center justify-between cursor-pointer px-4 mb-3"
+            >
+              <label for="name2">ایران</label>
+              <input type="checkbox" id="name2" class="borde-none w-4 h-4" />
+            </div>
+            <div
+              class="flex items-center justify-between cursor-pointer px-4 mb-3"
+            >
+              <label for="name3">ایران</label>
+              <input type="checkbox" id="name3" class="borde-none w-4 h-4" />
+            </div>
+          </CollapsibleCard>
+          <CollapsibleCard title="فیلتر بر اساس برند محصول">
+            <div
+              class="flex items-center justify-between cursor-pointer px-4 mb-3"
+            >
+              <label for="name1">ایران</label>
+              <input type="checkbox" id="name1" class="borde-none w-4 h-4" />
+            </div>
+            <div
+              class="flex items-center justify-between cursor-pointer px-4 mb-3"
+            >
+              <label for="name2">ایران</label>
+              <input type="checkbox" id="name2" class="borde-none w-4 h-4" />
+            </div>
+            <div
+              class="flex items-center justify-between cursor-pointer px-4 mb-3"
+            >
+              <label for="name3">ایران</label>
+              <input type="checkbox" id="name3" class="borde-none w-4 h-4" />
+            </div>
+          </CollapsibleCard>
+        </div>
       </div>
       <div class="col-span-3 w-full">
         <div class="grid grid-cols-3 gap-4">
