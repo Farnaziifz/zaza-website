@@ -13,7 +13,7 @@ const props = defineProps<productCardProps>()
     class="w-full bg-white rounded p-4 cursor-pointer"
     :class="{ 'border border-sec-gray': hasBorder }"
   >
-    <img :src="temp5" alt="" class="mb-5" />
+    <img :src="temp5" alt="" class="mb-5 m-auto" />
     <p class="mb-5 text-center text-sm font-[dana-medium]">
        سیم چین 6 اینچ میکا Mika
     </p>

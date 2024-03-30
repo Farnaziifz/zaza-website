@@ -1,26 +1,3 @@
-<template>
-  <div class="pagination">
-    <button :disabled="currentPage === 1" @click="goToPage(1)">First</button>
-    <button :disabled="currentPage === 1" @click="prevPage">Prev</button>
-
-    <template v-for="page in visiblePages" :key="page">
-      <button :class="{ active: currentPage === page }" @click="goToPage(page)">
-        {{ page }}
-      </button>
-    </template>
-
-    <button :disabled="currentPage === totalPages" @click="nextPage">
-      Next
-    </button>
-    <button
-      :disabled="currentPage === totalPages"
-      @click="goToPage(totalPages)"
-    >
-      Last
-    </button>
-  </div>
-</template>
-
 <script lang="ts" setup>
 import { ref, computed, watch } from 'vue'
 const emits = defineEmits(['update:currentPage'])
@@ -79,6 +56,28 @@ watch(
   }
 )
 </script>
+<template>
+  <div class="pagination">
+    <button :disabled="currentPage === 1" @click="goToPage(1)">First</button>
+    <button :disabled="currentPage === 1" @click="prevPage">Prev</button>
+
+    <template v-for="page in visiblePages" :key="page">
+      <button :class="{ active: currentPage === page }" @click="goToPage(page)">
+        {{ page }}
+      </button>
+    </template>
+
+    <button :disabled="currentPage === totalPages" @click="nextPage">
+      Next
+    </button>
+    <button
+      :disabled="currentPage === totalPages"
+      @click="goToPage(totalPages)"
+    >
+      Last
+    </button>
+  </div>
+</template>
 
 <style scoped>
 .pagination {
