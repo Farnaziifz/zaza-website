@@ -1,8 +1,18 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, type Ref, onBeforeMount } from 'vue'
 import serach from '../Icons/serach.vue'
 import MegaMenu from '@/components/shared/MegaMenu/index.vue'
+import { getCategoryList } from '@/logics/specifics/category.handler'
+import { type categoryList } from '@/core/types/category.type'
 const isShowMenu = ref(false)
+const categoryData: Ref<categoryList> = ref({
+  count: 0,
+  total_pages: 0,
+  next: false,
+  previous: false,
+  current_page: 1,
+  results: [],
+})
 
 const toggleMenu = () => {
   isShowMenu.value = true
@@ -10,6 +20,11 @@ const toggleMenu = () => {
 const hideMenu = () => {
   isShowMenu.value = false
 }
+
+onBeforeMount(async () => {
+  const res = await getCategoryList()
+  console.log('console in view', res)
+})
 </script>
 
 <template>

@@ -10,7 +10,7 @@ const props = defineProps<BlogProps>()
 </script>
 
 <template>
-  <div class="w-full flex flex-col cursor-pointer">
+  <div class="w-full flex flex-col cursor-pointer mb-10">
     <img :src="img" alt="" class="w-full" />
     <p class="mt-3 font-[dana-medium] text-lg text-center lg:text-right">
       {{ props.title }}
