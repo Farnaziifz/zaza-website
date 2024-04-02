@@ -1,6 +1,7 @@
 <script setup lang="ts">
 type megaMenuProps = {
   isShow: boolean
+  category: []
 }
 
 const props = defineProps<megaMenuProps>()
@@ -11,7 +12,9 @@ const props = defineProps<megaMenuProps>()
     :class="{ 'py-4': props.isShow }"
   >
     <div class="px-2" :class="props.isShow ? 'block' : 'hidden'">
-      <p>salam</p>
+      <pre>
+        {{ category }}
+      </pre>
     </div>
   </div>
 </template>

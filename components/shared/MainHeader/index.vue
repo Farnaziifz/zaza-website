@@ -22,8 +22,11 @@ const hideMenu = () => {
 }
 
 onBeforeMount(async () => {
-  const res = await getCategoryList()
-  console.log('console in view', res)
+  console.log('hellllo')
+  
+  categoryData.value = await getCategoryList()
+  console.log('console in view', categoryData)
+  console.log('salamaaa')
 })
 </script>
 
@@ -35,6 +38,7 @@ onBeforeMount(async () => {
         :is-show="isShowMenu"
         @mouseover="toggleMenu"
         @mouseleave="hideMenu"
+        :category="categoryData"
       />
       <div class="flex lg:justify-between items-center flex-1 justify-center">
         <div>
@@ -75,6 +79,7 @@ onBeforeMount(async () => {
           >
             دسته بندی کالا
           </button>
+
           <div class="mr-2 hidden lg:block">
             <span>icon</span>
             <span class="mr-1 font-[dana-light]">پر فروش‌ترین‌ها</span>
