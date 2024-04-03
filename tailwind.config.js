@@ -35,6 +35,9 @@ module.exports = {
         5: '5',
         6: '6',
       },
+      height: {
+        'img': '400px',
+      },
     },
   },
   plugins: [

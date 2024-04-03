@@ -29,7 +29,11 @@ import man4 from '@/assets/images/man/man-4.png'
       <div class="grid grid-cols-3 gap-4 mt-10">
         <div class="flex flex-col justify-between">
           <div>
-            <p class="font-[dana-demi]">شناسه محصول: 11020020028</p>
+            <p class="font-[dana-demi] mb-2">شناسه محصول: 11020020028</p>
+            <p class="font-[dana-demi] mb-2">شناسه محصول: 11020020028</p>
+            <p class="font-[dana-demi] mb-2">شناسه محصول: 11020020028</p>
+            <p class="font-[dana-demi] mb-2">شناسه محصول: 11020020028</p>
+            <p class="font-[dana-demi] mb-2">شناسه محصول: 11020020028</p>
           </div>
           <div class="flex">
             <img :src="man4" alt="" class="w-20" />
