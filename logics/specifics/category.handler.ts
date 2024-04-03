@@ -5,14 +5,8 @@ const api = categoryApi()
 
 export const getCategoryList = async (): Promise<categoryList> => {
   const res = await api.getCategoryList()
-  console.log('console. in handler', res)
-  const category = res.data
-
+  const category = res.results
   const errors = res.errors
 
-  if (Object.is(errors, null)) return category
-  else {
-    // TODO: error handling
-    throw 'errors'
-  }
+  return category
 }

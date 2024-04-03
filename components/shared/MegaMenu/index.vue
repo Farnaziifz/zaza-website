@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { type categoryList } from '@/core/types/category.type'
+
 type megaMenuProps = {
   isShow: boolean
-  category: []
+  category: categoryList
 }
 
 const props = defineProps<megaMenuProps>()

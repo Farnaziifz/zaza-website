@@ -22,11 +22,8 @@ const hideMenu = () => {
 }
 
 onBeforeMount(async () => {
-  console.log('hellllo')
   
   categoryData.value = await getCategoryList()
-  console.log('console in view', categoryData)
-  console.log('salamaaa')
 })
 </script>
 
