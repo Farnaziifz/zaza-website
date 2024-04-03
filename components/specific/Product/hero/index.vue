@@ -9,8 +9,13 @@ import man4 from '@/assets/images/man/man-4.png'
 </script>
 
 <template>
-  <div class="grid grid-cols-3 gap-4">
-    <div class="">
+  <div class="grid lg:grid-cols-3 gap-4 grid-cols-1">
+    <div class="px-2 lg:px-0">
+      <div class="w-full border-b border-sec-gray">
+        <h1 class="font-[dana-demi] text-[18px] mb-2 block lg:hidden">
+          آبنما بارانی استیل 3 ردیفه 1 متری شاین shine
+        </h1>
+      </div>
       <div class="w-full">
         <img :src="temp8" alt="" class="w-full" />
       </div>
@@ -20,7 +25,7 @@ import man4 from '@/assets/images/man/man-4.png'
         <img :src="temp8" alt="" class="w-full" />
       </div>
     </div>
-    <div class="col-span-2">
+    <div class="col-span-2 hidden lg:block">
       <div class="w-full border-b border-sec-gray">
         <h1 class="font-[dana-demi] text-[32px] mb-2">
           آبنما بارانی استیل 3 ردیفه 1 متری شاین shine
@@ -91,6 +96,36 @@ import man4 from '@/assets/images/man/man-4.png'
           </div>
         </div>
       </div>
+    </div>
+    <div class="block lg:hidden">
+      <div class="grid grid-cols-2 gap-4 mt-10">
+        <p class="font-[dana-demi] mb-1 text-sm">شناسه محصول: 11020020028</p>
+        <p class="font-[dana-demi] mb-1 text-sm">شناسه محصول: 11020020028</p>
+        <p class="font-[dana-demi] mb-1 text-sm">شناسه محصول: 11020020028</p>
+        <p class="font-[dana-demi] mb-1 text-sm">شناسه محصول: 11020020028</p>
+        <p class="font-[dana-demi] mb-1 text-sm">شناسه محصول: 11020020028</p>
+      </div>
+      <div>
+        <div class="mt-5 grid grid-cols-2 gap-4">
+          <div class="flex items-center mb-8 text-center">
+            <img :src="approvalIcon" alt="" />
+            <p class="mr-2 font-[dana-demi] text-sm">ضمانت اصل بودن کالا</p>
+          </div>
+          <div class="flex items-center mb-8 text-center">
+            <img :src="StallIcon" alt="" />
+            <p class="mr-2 font-[dana-demi] text-sm">
+              امکان تحویل در فروشگاه زازا کالا
+            </p>
+          </div>
+        </div>
+        <div
+          class="flex items-center mb-8 text-center m-auto w-full justify-center"
+        >
+          <img :src="ExerciseIcon" alt="" />
+          <p class="mr-2 font-[dana-demi] text-sm">ارسال سریع</p>
+        </div>
+      </div>
+     
     </div>
   </div>
 </template>

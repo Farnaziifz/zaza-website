@@ -1,18 +1,20 @@
 <template>
-  <div class="grid grid-cols-3 gap-4">
+  <div class="grid lg:grid-cols-3 lg:gap-4 gap-y-4 grid-cols-1 px-4 lg:px-0">
     <div class="col-span-2 rounded border border-sec-gray p-4">
       <div class="font-[dana-bold] text-[20px]">مشخصات</div>
       <div class="mt-5 grid grid-cols-6 gap-4 flex items-center">
-        <div class="col-span-2">ابفادابفادابفادابفاد</div>
+        <div class="col-span-2 text-sm lg:text-md">ابفادابفادابفادابفاد</div>
         <div
-          class="py-2 border-b border-sec-gray w-full col-span-4 font-[dana-demi]"
+          class="py-2 border-b border-sec-gray w-full col-span-4 font-[dana-demi] text-sm lg:text-md"
         >
           ۲ در ۵ در ۴۰
         </div>
       </div>
       <div class="mt-5 grid grid-cols-6 gap-4 flex items-center">
-        <div class="col-span-2">ابفادابفادابفادابفاد</div>
-        <div class="py-2 border-b border-sec-gray w-full col-span-4">
+        <div class="col-span-2 text-sm lg:text-md">ابفادابفادابفادابفاد</div>
+        <div
+          class="py-2 border-b border-sec-gray w-full col-span-4 text-sm lg:text-md"
+        >
           ۲ در ۵ در ۴۰
         </div>
       </div>

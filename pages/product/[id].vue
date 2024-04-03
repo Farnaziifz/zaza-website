@@ -7,13 +7,13 @@ import Specifications from '@/components/specific/Product/Specifications/index.v
 </script>
 <template>
   <div class="container">
-    <div class="my-4 mt-[100px] lg:mt-10">
-      <span class="font-sm text-text-gray">خانه</span
-      ><span class="mx-2 text-text-gray">></span
-      ><span class="font-sm text-text-gray">استخر و لوله کشی</span>
-      <span class="mx-2 text-text-gray">></span>
-      <span class="font-sm text-text-gray">استخر و لوله کشی</span>
-      <span class="mx-2 text-text-gray">></span>
+    <div class="my-4 mt-[100px] lg:mt-10 overflow-scroll">
+      <span class="lg:text-sm text-text-gray text-xs">خانه</span
+      ><span class="mx-2 text-text-gray lg:text-sm text-xs">></span
+      ><span class="lg:text-sm text-text-gray text-xs">استخر و لوله کشی</span>
+      <span class="mx-2 text-text-gray text-sm text-xs">></span>
+      <span class="text-sm text-text-gray text-xs">استخر و لوله کشی</span>
+      <span class="mx-2 text-text-gray text-xs">></span>
       <span>اسم محصول</span>
     </div>
     <ProductHero />
