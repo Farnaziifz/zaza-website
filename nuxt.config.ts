@@ -13,4 +13,8 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  plugins: [
+    // ...others
+    // { src: '~/plugins/datePicker', mode: 'client' },
+  ],
 })

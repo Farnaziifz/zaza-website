@@ -4,6 +4,7 @@ import ServicesCardSection from '@/components/specific/ServicesPage/SevicesCardS
 import ServicesLanding from '@/components/specific/ServicesPage/ServicesLanding/index.vue'
 </script>
 
+
 <template>
   <div class="main-page pt-14">
     <div class="page-shadow"></div>
