@@ -1,5 +1,16 @@
+<script setup lang="ts">
+import { useRoute } from 'vue-router'
+const currentRouteName = useRoute().name
+</script>
+
 <template>
   <div class="py-7 fixed bottom-0 w-full bg-white block lg:hidden my-shadow">
+    <div
+      v-if="currentRouteName === 'services-category-peymankar-id'"
+      class="container mb-5 px-5 border-b border-sec-gray pb-4"
+    >
+      <button class="bg-primary rounded w-full py-2">درخواست همکاری</button>
+    </div>
     <div class="container px-4 grid grid-cols-4">
       <div class="text-center">
         <p>icons</p>

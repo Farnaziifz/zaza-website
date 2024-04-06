@@ -37,4 +37,9 @@
 body {
   font-family: 'dana-regular';
   overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.my-shadow {
+  box-shadow: 0 0 6px #c2c2c2;
 }

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="mb-8 border-b border-sec-gray py-4">
     <div class="flex items-center">
       <span class="bg-[green] px-1 text-white rounded">5.0</span>
       <span class="font-[dana-demi] font-lg mr-2"
