@@ -10,8 +10,9 @@ const props = defineProps<{
   options: Option[]
   title: string
 }>()
+const emits = defineEmits()
 
-const selectedOption = ref<Option>({ id: 0, label: '' }) // Initialize with an empty label
+const selectedOption = ref<Option>({ id: 0, label: '' }) 
 const isOpen = ref(false)
 const options = ref(props.options)
 
@@ -22,13 +23,14 @@ const toggleDropdown = () => {
 const selectOption = (option: Option) => {
   selectedOption.value = option
   isOpen.value = false
+  emits('optionSelected', option) 
 }
 </script>
 
 <template>
-  <div class="relative">
+  <div class="relative w-full">
     <div
-      class="inline-flex justify-center w-full text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100 cursor-pointer justify-between p-3 border-sec-gray"
+      class="w-full flex justify-center w-full text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100 cursor-pointer justify-between p-3 border-sec-gray"
       aria-haspopup="listbox"
       @click="toggleDropdown"
     >

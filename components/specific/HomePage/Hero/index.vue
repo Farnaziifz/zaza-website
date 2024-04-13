@@ -1,9 +1,40 @@
 <script setup lang="ts">
+import { onBeforeMount } from 'vue'
 import man1 from '@/assets/images/man/man-1.png'
 import DropDown from '@/components/shared/DropDown/index.vue'
+import { getCategoryList } from '@/logics/specifics/category.handler'
+import { type categoryList } from '@/core/types/category.type'
 
-const cat1Options = ref([{ id: 1, label: 'استخر' }])
-const cat2Options = ref([{ id: 1, label: 'لوله' }])
+type cat = {
+  id: number
+  label: string
+}
+const categoryData: Ref<categoryList> = ref({
+  count: 0,
+  total_pages: 0,
+  next: false,
+  previous: false,
+  current_page: 1,
+  results: [],
+})
+
+const categoryMain: Ref<cat[]> = ref([])
+const subCat: Ref<cat[]> = ref([])
+
+onBeforeMount(async () => {
+  categoryData.value = await getCategoryList()
+  categoryData.value.results.forEach((el) => {
+    if (el.parent === null)
+      categoryMain.value.push({ id: +el.id, label: el.title_product })
+  })
+})
+
+const optionMainSelected = (val: cat) => {
+  categoryData.value.results.forEach((el) => {
+    if (el.parent?.id === val.id)
+      subCat.value.push({ id: +el.id, label: el.title_product })
+  })
+}
 </script>
 
 <template>
@@ -24,13 +55,17 @@ const cat2Options = ref([{ id: 1, label: 'لوله' }])
               دوستی میدهیم.
             </h1>
             <p
-              class="font-[dana-bold] text-[32px] mt-20 text-[#807F7F] lg:block hidden"
+              class="font-[dana-bold] text-[32px] mt-20 text-[#807F7F] lg:block hidden text-center lg:text-right w-full"
             >
               دنبال چه محصولی میگردید؟
             </p>
-            <div class="grid grid-cols-3 gap-4 mt-7 lg:grid hidden">
-              <DropDown title="انتخاب دسته‌بندی اصلی" :options="cat1Options" />
-              <DropDown title="انتخاب دسته‌بندی دوم" :options="cat2Options" />
+            <div class="grid grid-cols-3 gap-4 mt-7 lg:grid hidden w-full">
+              <DropDown
+                title="انتخاب دسته‌بندی اصلی"
+                :options="categoryMain"
+                @optionSelected="optionMainSelected"
+              />
+              <DropDown title="انتخاب دسته‌بندی دوم" :options="subCat" />
               <button class="focus:outline-none bg-primary rounded px-4 py-3">
                 انتخاب
               </button>

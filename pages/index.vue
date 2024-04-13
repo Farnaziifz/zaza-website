@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { onBeforeMount } from 'vue'
+
 import SharedCardsZazaFeature from '@/components/specific/HomePage/Features/index.vue'
 import HereSection from '@/components/specific/HomePage/Hero/index.vue'
 import ProductCategorySection from '@/components/specific/HomePage/ProductCategorySection/index.vue'
@@ -6,6 +8,8 @@ import ContactorSection from '@/components/specific/HomePage/ContractorSection/i
 import SpecialProductSection from '@/components/specific/HomePage/SpecialProductSection/index.vue'
 import BlogSection from '@/components/specific/HomePage/BlogSection/index.vue'
 import BrandSection from '@/components/specific/HomePage/BrandSection/index.vue'
+
+
 </script>
 
 <template>
