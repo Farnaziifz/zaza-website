@@ -22,7 +22,6 @@ const hideMenu = () => {
 }
 
 onBeforeMount(async () => {
-  
   categoryData.value = await getCategoryList()
 })
 </script>
@@ -31,11 +30,12 @@ onBeforeMount(async () => {
   <div>
     <div class="container relative">
       <MegaMenu
-        class="absolute top-[155px] right-0"
+        class="absolute top-[155px] right-0 z-50"
         :is-show="isShowMenu"
         @mouseover="toggleMenu"
         @mouseleave="hideMenu"
         :category="categoryData"
+        v-if="categoryData"
       />
       <div class="flex lg:justify-between items-center flex-1 justify-center">
         <div>

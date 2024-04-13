@@ -10,7 +10,6 @@ type response = {
 
 const categoryListGet = async (): Promise<response> => {
   const res = await api.get(`${pageUrl}/category/`)
-  console.log('console in api module', res)
   return res.data
 }
 
