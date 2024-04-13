@@ -4,9 +4,9 @@ import man4 from '@/assets/images/man/man-4.png'
 
 <template>
   <div class="container min-h-10 mt-[100px] h-full relative">
-    <img :src="man4" alt="" class="absolute right-0 my-image" />
-    <div class="grid grid-cols-2 gap-10">
-      <div class="w-full"></div>
+    <img :src="man4" alt="" class="absolute right-0 my-image hidden lg:block" />
+    <div class="grid lg:grid-cols-2 lg:gap-10">
+      <div class="w-full hidden lg:block"></div>
       <div class="w-full text-center">
         <h1 class="text-[32px] font-[dana-bold]">ارتباطی بدون مرز!</h1>
         <p class="px-10 mt-10">
@@ -19,7 +19,7 @@ import man4 from '@/assets/images/man/man-4.png'
         </p>
       </div>
     </div>
-    <div class="grid grid-cols-2 gap-10 mt-14">
+    <div class="grid lg:grid-cols-2 lg:gap-10 mt-14 gap-y-4 px-4">
       <div class="w-full rounded bg-primary py-14 px-5 text-center">
         <h1 class="text-[32px] font-[dana-demi] mb-10">واقعا هوشمند</h1>
         <p>

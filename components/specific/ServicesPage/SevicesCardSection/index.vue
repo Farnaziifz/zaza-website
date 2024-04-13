@@ -3,9 +3,11 @@ import logo from '@/assets/images/logo.svg'
 import man4 from '@/assets/images/man/man-4.png'
 </script>
 <template>
-  <div class="container grid grid-cols-2 gap-4 relative">
+  <div
+    class="container grid lg:grid-cols-2 grid-cols-1 gap-y-3 lg:gap-4 relative"
+  >
     <div class="absolute top-1/2 left-1/2 transform">
-      <img :src="logo" alt="" class="w-60 h-60 opacity-50" />
+      <img :src="logo" alt="" class="w-60 h-60 opacity-50 hidden lg:block" />
     </div>
     <div class="border rounded border-sec-gray p-4">
       <h2 class="text-center text-[40px] font-[dana-bold] mt-4">
