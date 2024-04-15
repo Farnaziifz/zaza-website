@@ -12,11 +12,6 @@ import BrandSection from '@/components/specific/HomePage/BrandSection/index.vue'
 import { getCategoryList } from '@/logics/specifics/category.handler'
 import { type categoryList } from '@/core/types/category.type'
 
-type cat = {
-  id: number
-  label: string
-}
-
 const categoryData: Ref<categoryList> = ref({
   count: 0,
   total_pages: 0,
@@ -35,9 +30,15 @@ onBeforeMount(async () => {
   <div class="mt-14">
     <HereSection :category="categoryData.results" />
     <SharedCardsZazaFeature class="mt-14" />
-    <ProductCategorySection class="mt-14 hidden lg:block" />
+    <ProductCategorySection
+      class="mt-14 hidden lg:block"
+      :category="categoryData.results"
+    />
     <ContactorSection class="mt-14" />
-    <ProductCategorySection class="mt-14 block lg:hidden" />
+    <ProductCategorySection
+      class="mt-14 block lg:hidden"
+      :category="categoryData.results"
+    />
 
     <SpecialProductSection class="mt-14" />
     <BlogSection class="mt-14" />

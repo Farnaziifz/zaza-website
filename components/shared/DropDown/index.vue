@@ -98,7 +98,7 @@ const selectOption = (option: Option) => {
 </template>
 
 <style scoped>
-/* Styles for dropdown */
+
 .rotate-180 {
   transform: rotate(180deg);
 }

@@ -23,6 +23,7 @@ onBeforeMount(async () => {
       categoryMain.value.push({ id: +el.id, label: el.title_product })
   })
 })
+
 const optionMainSelected = (val: cat) => {
   props.category.forEach((el) => {
     if (el.parent?.id === val.id)
@@ -48,21 +49,23 @@ const optionMainSelected = (val: cat) => {
               از فروش محصولات تا نصب و راه‌اندازی و انتخاب متخصص مناسب شما دست
               دوستی میدهیم.
             </h1>
-            <p
-              class="font-[dana-bold] text-[32px] mt-20 text-[#807F7F] lg:block hidden text-center lg:text-right w-full"
-            >
-              دنبال چه محصولی میگردید؟
-            </p>
-            <div class="grid grid-cols-3 gap-4 mt-7 lg:grid hidden w-full">
-              <DropDown
-                title="انتخاب دسته‌بندی اصلی"
-                :options="categoryMain"
-                @optionSelected="optionMainSelected"
-              />
-              <DropDown title="انتخاب دسته‌بندی دوم" :options="subCat" />
-              <button class="focus:outline-none bg-primary rounded px-4 py-3">
-                انتخاب
-              </button>
+            <div class="w-full" v-if="props.category.length">
+              <p
+                class="font-[dana-bold] text-[32px] mt-20 text-[#807F7F] lg:block hidden text-center lg:text-right w-full"
+              >
+                دنبال چه محصولی میگردید؟
+              </p>
+              <div class="grid grid-cols-3 gap-4 mt-7 lg:grid hidden w-full">
+                <DropDown
+                  title="انتخاب دسته‌بندی اصلی"
+                  :options="categoryMain"
+                  @optionSelected="optionMainSelected"
+                />
+                <DropDown title="انتخاب دسته‌بندی دوم" :options="subCat" />
+                <button class="focus:outline-none bg-primary rounded px-4 py-3">
+                  انتخاب
+                </button>
+              </div>
             </div>
           </div>
         </div>
