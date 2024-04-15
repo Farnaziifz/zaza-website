@@ -38,9 +38,9 @@ export type categoryType = {
 
 export type categoryList = {
   count: number
-  total_pages: number
-  next: boolean
-  previous: boolean
+  total_pages: number | undefined
+  next: boolean | null
+  previous: boolean | null
   current_page: number
   results: categoryType[]
 }

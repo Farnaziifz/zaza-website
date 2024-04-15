@@ -34,7 +34,7 @@ onBeforeMount(async () => {
         :is-show="isShowMenu"
         @mouseover="toggleMenu"
         @mouseleave="hideMenu"
-        :category="categoryData"
+        :category="categoryData.results"
       />
       <div class="flex lg:justify-between items-center flex-1 justify-center">
         <div>

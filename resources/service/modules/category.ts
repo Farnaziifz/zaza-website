@@ -5,7 +5,6 @@ import { type error } from '@/core/types/error.type'
 const pageUrl = 'category'
 type response = {
   data: categoryList
-  errors: error
 }
 
 const categoryListGet = async (): Promise<response> => {

@@ -1,36 +1,30 @@
 <script setup lang="ts">
-import { onBeforeMount } from 'vue'
 import man1 from '@/assets/images/man/man-1.png'
 import DropDown from '@/components/shared/DropDown/index.vue'
-import { getCategoryList } from '@/logics/specifics/category.handler'
-import { type categoryList } from '@/core/types/category.type'
+import { type categoryType } from '@/core/types/category.type'
 
 type cat = {
   id: number
   label: string
 }
-const categoryData: Ref<categoryList> = ref({
-  count: 0,
-  total_pages: 0,
-  next: false,
-  previous: false,
-  current_page: 1,
-  results: [],
-})
+
+type HeroProps = {
+  category: categoryType[]
+}
+
+const props = defineProps<HeroProps>()
 
 const categoryMain: Ref<cat[]> = ref([])
 const subCat: Ref<cat[]> = ref([])
 
 onBeforeMount(async () => {
-  categoryData.value = await getCategoryList()
-  categoryData.value.results.forEach((el) => {
+  props.category.forEach((el) => {
     if (el.parent === null)
       categoryMain.value.push({ id: +el.id, label: el.title_product })
   })
 })
-
 const optionMainSelected = (val: cat) => {
-  categoryData.value.results.forEach((el) => {
+  props.category.forEach((el) => {
     if (el.parent?.id === val.id)
       subCat.value.push({ id: +el.id, label: el.title_product })
   })

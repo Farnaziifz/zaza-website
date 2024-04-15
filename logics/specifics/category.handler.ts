@@ -6,7 +6,6 @@ const api = categoryApi()
 export const getCategoryList = async (): Promise<categoryList> => {
   const res = await api.getCategoryList()
   const category = res
-  const errors = res.errors
 
   return category
 }
