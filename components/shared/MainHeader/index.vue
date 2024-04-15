@@ -35,7 +35,6 @@ onBeforeMount(async () => {
         @mouseover="toggleMenu"
         @mouseleave="hideMenu"
         :category="categoryData"
-        v-if="categoryData"
       />
       <div class="flex lg:justify-between items-center flex-1 justify-center">
         <div>
