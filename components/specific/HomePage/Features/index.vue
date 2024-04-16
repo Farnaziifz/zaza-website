@@ -29,6 +29,7 @@ import ZazaFeatureCard from '@/components/shared/Cards/ZazaFeature/index.vue'
       text="زازا کالا یک مجموعه واردات و توزیع ابزارآلات، کالای ساختمانی و صنعتی است."
       short-desc="مجموعه زازاکالا از شرکت های یک هلدینگ بزرگ ساختمانی می باشد که در سال 96 در اداره ثبت شرکت ها به ثبت رسیده است..."
       button-text="درباره زازا"
+      link="/about"
     />
   </div>
 </template>

@@ -2,7 +2,7 @@
 import { ref, defineAsyncComponent, computed } from 'vue'
 import ServicesCategory from '@/components/specific/ServicesPage/ServicesCategory/index.vue'
 import ExerciseIcon from '@/assets/images/icons/Exercise.png'
-import WorkerIcon from '@/assets/images/icons/worker.png'
+import WorkerIcon from '@/assets/images/icons/Worker.png'
 import ModalComponent from '@/components/shared/Modal/index.vue'
 
 const isModalOpen = ref(false)

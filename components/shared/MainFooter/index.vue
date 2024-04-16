@@ -24,10 +24,18 @@ import cert3 from '@/assets/images/cert3.svg'
       <div class="col-span-4 lg:col-span-3 flex justify-center">
         <div class="flex flex-col justify-start">
           <p class="my-10 font-[dana-bold] lg:block hidden">لینک‌های مفید</p>
-          <a href="#" class="mb-4 text-center lg:text-right">حریم خصوصی</a>
-          <a href="#" class="mb-4 text-center lg:text-right">سوالات متداول</a>
-          <a href="#" class="mb-4 text-center lg:text-right">شرایط و ضوابط</a>
-          <a href="#" class="mb-4 text-center lg:text-right">ثبت نام متخصصین</a>
+          <NuxtLink to="/privacy" class="mb-4 text-center lg:text-right"
+            >حریم خصوصی</NuxtLink
+          >
+          <NuxtLink to="/faq" class="mb-4 text-center lg:text-right"
+            >سوالات متداول</NuxtLink
+          >
+          <NuxtLink to="/terms" class="mb-4 text-center lg:text-right"
+            >شرایط و ضوابط</NuxtLink
+          >
+          <NuxtLink to="/" class="mb-4 text-center lg:text-right"
+            >ثبت نام متخصصین</NuxtLink
+          >
         </div>
       </div>
       <div class="col-span-4 lg:col-span-5 my-0 lg:my-10">
@@ -46,10 +54,14 @@ import cert3 from '@/assets/images/cert3.svg'
           </div>
         </div>
         <div class="my-4 text-center lg:text-right">
-          <a href="#" class="mb-4 text-center lg:text-right">درباره ما</a>
+          <NuxtLink to="/about" class="mb-4 text-center lg:text-right"
+            >درباره ما</NuxtLink
+          >
         </div>
         <div class="my-4 text-center lg:text-right">
-          <a href="#" class="mb-4 text-center lg:text-right">تماس با ما</a>
+          <NuxtLink to="/contact" class="mb-4 text-center lg:text-right"
+            >تماس با ما</NuxtLink
+          >
         </div>
         <div class="flex w-full justify-between mt-4">
           <img :src="cert1" alt="" />

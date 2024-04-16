@@ -18,13 +18,19 @@ const props = defineProps<megaMenuProps>()
         <template v-for="catItem in category">
           <div v-if="catItem?.children" :key="catItem?.id" class="mb-5">
             <div>
-              <p class="text-primary font-[dana-bold] text-md cursor-pointer">
-                {{ catItem?.title_product }}
-              </p>
-              <div :key="sub?.id" class="mt-5" v-for="sub in catItem.children">
-                <p class="text-sm cursor-pointer">
-                  {{ sub?.title_product }}
+              <NuxtLink :to="`/product-category/${catItem.seo_slug}`">
+                <p class="text-primary font-[dana-bold] text-md cursor-pointer">
+                  {{ catItem?.title_product }}
                 </p>
+              </NuxtLink>
+              <div :key="sub?.id" class="mt-5" v-for="sub in catItem.children">
+                <NuxtLink
+                  :to="`/product-category/${catItem.seo_slug}/${sub.seo_slug}`"
+                >
+                  <p class="text-sm cursor-pointer">
+                    {{ sub?.title_product }}
+                  </p>
+                </NuxtLink>
               </div>
             </div>
           </div>

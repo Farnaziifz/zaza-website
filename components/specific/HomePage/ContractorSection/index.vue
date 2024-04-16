@@ -27,11 +27,13 @@ import mainBg from '@/assets/images/main-bg.png'
             برترین متخصصین در سراسر کشور را اینجا میتونید پیدا کنید
           </p>
         </div>
-        <button
-          class="bg-primary p-4 focus:outline-none lg:rounded -mt-10 lg:mt-10 w-full lg:w-auto"
-        >
-          انتخاب متخصص
-        </button>
+        <NuxtLink to="/services">
+          <button
+            class="bg-primary p-4 focus:outline-none lg:rounded -mt-10 lg:mt-10 w-full lg:w-auto"
+          >
+            انتخاب متخصص
+          </button>
+        </NuxtLink>
       </div>
     </div>
   </div>
