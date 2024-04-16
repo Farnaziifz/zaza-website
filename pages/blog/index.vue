@@ -1,6 +1,41 @@
 <script setup lang="ts">
+import { onBeforeMount } from 'vue'
 import BlogCard from '@/components/shared/Cards/BlogCard/index.vue'
 import tem3 from '@/assets/images/temp/3.png'
+import { type categoryList } from '@/core/types/category.type'
+import { getCategoryList } from '@/logics/specifics/category.handler'
+import { getBlogList } from '@/logics/specifics/blog.handler'
+import { type blogList } from '@/core/types/blog.type'
+
+import _ from 'lodash'
+
+const categoryData: Ref<categoryList> = ref({
+  count: 0,
+  total_pages: 0,
+  next: false,
+  previous: false,
+  current_page: 1,
+  results: [],
+})
+
+const blogData: Ref<blogList> = ref({
+  count: 0,
+  total_pages: 0,
+  next: false,
+  previous: false,
+  current_page: 1,
+  results: [],
+})
+
+const filterList = ref([])
+onBeforeMount(async () => {
+  categoryData.value = await getCategoryList()
+  blogData.value = await getBlogList()
+})
+
+const addToFilterList = (item: number) => {
+  // if (filterList.find((el) => el === item)) console.log('salam')
+}
 </script>
 
 <template>
@@ -8,28 +43,34 @@ import tem3 from '@/assets/images/temp/3.png'
     <div class="col-span-1">
       <div class="border border-sec-gray rounded p-4">
         <p class="text-[20px] font-[dana-demi] mb-10">دسته‌بندی</p>
-        <div class="flex items-center justify-between cursor-pointer px-4 mb-3">
-          <label for="name1">ایران</label>
-          <input type="checkbox" id="name1" class="borde-none w-4 h-4" />
+        <div
+          class="flex items-center justify-between cursor-pointer px-4 mb-3"
+          v-for="cat in categoryData.results"
+          :key="cat.id"
+        >
+          <label :for="_.toString(cat.id)">{{ cat.title_blog }}</label>
+          <input
+            type="checkbox"
+            :id="_.toString(cat.id)"
+            class="borde-none w-4 h-4"
+            @change="addToFilterList(cat.id)"
+          />
         </div>
-        <div class="flex items-center justify-between cursor-pointer px-4 mb-3">
-          <label for="name1">ایران</label>
-          <input type="checkbox" id="name1" class="borde-none w-4 h-4" />
-        </div>
-        <div class="flex items-center justify-between cursor-pointer px-4 mb-3">
-          <label for="name1">ایران</label>
-          <input type="checkbox" id="name1" class="borde-none w-4 h-4" />
-        </div>
+        <button class="bg-primary w-full rounded text-white py-2 mt-5">
+          اعمال فیلتر
+        </button>
       </div>
     </div>
     <div class="col-span-3 w-full">
       <div class="grid grid-cols-3 gap-4">
-        <BlogCard :img="tem3" title="لوله کشی استخهر" date="بهمن ۴۰۲" :id="1" />
-        <BlogCard :img="tem3" title="لوله کشی استخهر" date="بهمن ۴۰۲" :id="1" />
-        <BlogCard :img="tem3" title="لوله کشی استخهر" date="بهمن ۴۰۲" :id="1" />
-        <BlogCard :img="tem3" title="لوله کشی استخهر" date="بهمن ۴۰۲" :id="1" />
-        <BlogCard :img="tem3" title="لوله کشی استخهر" date="بهمن ۴۰۲" :id="1" />
-        <BlogCard :img="tem3" title="لوله کشی استخهر" date="بهمن ۴۰۲" :id="1" />
+        <BlogCard
+          :img="blog.thumbnail"
+          :title="blog.title"
+          :date="blog.created_at"
+          :id="blog.id"
+          v-for="blog in blogData.results"
+          :key="blog.id"
+        />
       </div>
     </div>
   </div>

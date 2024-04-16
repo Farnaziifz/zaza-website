@@ -49,9 +49,11 @@ import mainBg from '@/assets/images/main-bg.png'
         <p class="font-[dana-medium] text-sec-gray text-[24px] mt-4">
           با زازا خودتو مجهز کن
         </p>
-        <p class="text-white text-sm mt-7 cursor-pointer has-line">
-          مشاهده محصولات
-        </p>
+        <NuxtLink to="/product-category">
+          <p class="text-white text-sm mt-7 cursor-pointer has-line">
+            مشاهده محصولات
+          </p>
+        </NuxtLink>
       </div>
     </div>
   </div>

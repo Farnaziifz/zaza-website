@@ -4,7 +4,7 @@ type CardProps = {
   text: string
   buttonText: string
   shortDesc: string
-  link: string
+  link?: string
 }
 
 const props = defineProps<CardProps>()
