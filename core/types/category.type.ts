@@ -32,8 +32,8 @@ export type categoryType = {
   seo_title: string
   seo_description: string
   creator: string
-  parent: parent
   banner_main: number[]
+  children: parent[]
 }
 
 export type categoryList = {

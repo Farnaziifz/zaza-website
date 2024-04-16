@@ -37,9 +37,11 @@ onBeforeMount(async () => {
         :category="categoryData.results"
       />
       <div class="flex lg:justify-between items-center flex-1 justify-center">
-        <div>
-          <img src="@/assets/images/logo.svg" alt="" />
-        </div>
+        <NuxtLink to="/">
+          <div>
+            <img src="@/assets/images/logo.svg" alt="" />
+          </div>
+        </NuxtLink>
         <div class="w-full h-[60px] hidden lg:block">
           <div
             class="border h-full rounded mx-8 border-sec-gray flex items-center"
@@ -85,24 +87,32 @@ onBeforeMount(async () => {
             <span class="mr-1 font-[dana-light]">تخفیف‌ها</span>
           </div>
           <div class="mr-2 hidden lg:block">
-            <span>icon</span>
-            <span class="mr-1 font-[dana-light]">متخصصین</span>
+            <NuxtLink to="/services">
+              <span>icon</span>
+              <span class="mr-1 font-[dana-light]">متخصصین</span>
+            </NuxtLink>
           </div>
           <div class="h-8 bg-sec-gray w-px mx-2 hidden lg:block"></div>
           <div class="mr-2">
-            <span class="mr-1 font-[dana-light] text-xs lg:text-lg"
-              >سوالی دارید؟</span
-            >
+            <NuxtLink to="faq">
+              <span class="mr-1 font-[dana-light] text-xs lg:text-lg"
+                >سوالی دارید؟</span
+              >
+            </NuxtLink>
           </div>
           <div class="mr-2">
-            <span class="mr-1 font-[dana-light] text-xs lg:text-lg"
-              >تماس با ما</span
-            >
+            <NuxtLink to="/contact">
+              <span class="mr-1 font-[dana-light] text-xs lg:text-lg"
+                >تماس با ما</span
+              >
+            </NuxtLink>
           </div>
           <div class="mr-2">
-            <span class="mr-1 font-[dana-light] text-xs lg:text-lg"
-              >مجله زازا</span
-            >
+            <NuxtLink to="blog">
+              <span class="mr-1 font-[dana-light] text-xs lg:text-lg"
+                >مجله زازا</span
+              >
+            </NuxtLink>
           </div>
         </div>
         <div>
