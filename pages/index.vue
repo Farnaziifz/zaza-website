@@ -65,6 +65,6 @@ onBeforeMount(async () => {
 
     <SpecialProductSection class="mt-14" />
     <BlogSection class="mt-14" :blog="blogData.results.slice(0, 3)" />
-    <BrandSection class="mt-14" />
+    <BrandSection class="mt-14" :brands="brandData" />
   </div>
 </template>

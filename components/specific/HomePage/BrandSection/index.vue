@@ -1,3 +1,12 @@
+<script setup lang="ts">
+import { type brandList } from '~/core/types/product.type'
+type brandProps = {
+  brands: brandList
+}
+
+const prpos = defineProps<brandProps>()
+</script>
+
 <template>
   <div class="container">
     <h2 class="font-[dana-medium] text-[42px] text-center mb-5">
@@ -17,8 +26,17 @@
       }"
       class="w-full"
     >
-      <SwiperSlide v-for="slide in 10" :key="slide">
-        <strong>عکس برند {{ slide }}</strong>
+      <SwiperSlide
+        v-for="slide in prpos.brands?.results"
+        :key="slide.id"
+        class="flex justify-center bg-[re] bordered mx-5"
+      >
+        <div
+          class="w-[200p] h-[200px] flex flex-col justify-center items-center"
+        >
+          <img :src="slide.image" :alt="slide.seo_title" class="object-cover" />
+          <p>{{ slide.title }}</p>
+        </div>
       </SwiperSlide>
     </Swiper>
     <div class="text-center">
