@@ -11,9 +11,10 @@ import BrandSection from '@/components/specific/HomePage/BrandSection/index.vue'
 
 import { getCategoryList } from '@/logics/specifics/category.handler'
 import { getBlogList } from '@/logics/specifics/blog.handler'
+import { getBrandList } from '@/logics/specifics/product.handler'
 import { type categoryList } from '@/core/types/category.type'
 import { type blogList } from '@/core/types/blog.type'
-
+import { type brandList } from '@/core/types/product.type'
 const categoryData: Ref<categoryList> = ref({
   count: 0,
   total_pages: 0,
@@ -32,9 +33,19 @@ const blogData: Ref<blogList> = ref({
   results: [],
 })
 
+const brandData: Ref<brandList> = ref({
+  count: 0,
+  total_pages: 0,
+  next: false,
+  previous: false,
+  current_page: 1,
+  results: [],
+})
+
 onBeforeMount(async () => {
   categoryData.value = await getCategoryList()
   blogData.value = await getBlogList()
+  brandData.value = await getBrandList()
 })
 </script>
 
