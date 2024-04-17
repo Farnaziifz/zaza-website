@@ -7,7 +7,6 @@ type categoryCardType = {
 }
 
 const props = defineProps<categoryCardType>()
-console.log(props.category?.thumbnail_main)
 </script>
 
 <template>
@@ -16,13 +15,25 @@ console.log(props.category?.thumbnail_main)
       <p class="font-[dana-medium] text-md">
         {{ props.category?.title_product }}
       </p>
-      <div>
-        <p class="font-[dana-light] text-sm text-text-gray mb-1">
-          تجهیزات استخر و سونا و جکوزی
-        </p>
+      <div class="flex flex-col justify-between w-full h-full">
+        <div>
+          <p
+            class="font-[dana-light] text-sm text-text-gray mb-1"
+            v-for="item in props.category.children?.slice(0, 2)"
+            :key="item.id"
+          >
+            <NuxtLink
+              :to="`/product-category/${props.category.seo_slug}/${item.seo_slug}`"
+            >
+              {{ item.title_product }}
+            </NuxtLink>
+          </p>
+        </div>
 
         <div>
-          <p class="font-[dana-medium] text-md mt-3">خرید کن</p>
+          <NuxtLink :to="`/product-category/${props.category.seo_slug}`">
+            <p class="font-[dana-medium] text-md mt-3">خرید کن</p>
+          </NuxtLink>
         </div>
       </div>
     </div>

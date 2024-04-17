@@ -1,104 +1,109 @@
-<script lang="ts" setup>
-import { ref, computed, watch } from 'vue'
-const emits = defineEmits(['update:currentPage'])
+<script setup lang="ts">
+import { ref, defineProps, defineEmits } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
-type paginationProps = {
-  totalItems: number
-  itemsPerPage: number
-  currentPage: number
-}
-const props = defineProps<paginationProps>()
-const currentPage = ref(props.currentPage)
-
-const totalPages = computed(() =>
-  Math.ceil(props.totalItems / props.itemsPerPage)
-)
-
-const visiblePages = computed(() => {
-  const pages = []
-  const maxVisiblePages = 5 // Change this value if you want to display more or fewer pages
-
-  let start = Math.max(1, currentPage.value - Math.floor(maxVisiblePages / 2))
-  let end = Math.min(totalPages.value, start + maxVisiblePages - 1)
-
-  while (pages.length < maxVisiblePages && start <= end) {
-    pages.push(start)
-    start++
-  }
-
-  return pages
+const route = useRoute()
+const props = defineProps({
+  count: {
+    type: Number,
+    required: true,
+  },
+  total_pages: {
+    type: Number,
+    required: true,
+  },
+  next: {
+    type: String,
+  },
+  previous: {
+    type: String,
+  },
+  current_page: {
+    type: Number,
+    required: true,
+  },
 })
-const goToPage = (page: number) => {
-  if (page !== currentPage.value) {
-    currentPage.value = page
-    emits('update:currentPage', currentPage.value)
+
+const emits = defineEmits(['pageChange'])
+
+interface Pagination {
+  count: number
+  total_pages: number
+  next?: string
+  previous?: string
+  current_page: number
+}
+
+const pagination = ref<Pagination>({
+  count: props.count,
+  total_pages: props.total_pages,
+  next: props.next,
+  previous: props.previous,
+  current_page: props.current_page,
+})
+
+console.log(pagination)
+
+const fetchPage = (direction: 'next' | 'previous') => {
+  if (direction === 'next' && pagination.value.next) {
+    pagination.value.current_page++
+    emits('pageChange', pagination.value.current_page)
+  } else if (direction === 'previous' && pagination.value.previous) {
+    pagination.value.current_page--
+    emits('pageChange', pagination.value.current_page)
   }
 }
 
-const prevPage = () => {
-  if (currentPage.value > 1) {
-    currentPage.value--
-    emits('update:currentPage', currentPage.value)
-  }
+const changePage = (page: number | string) => {
+  emits('pageChange', page)
 }
-
-const nextPage = () => {
-  if (currentPage.value < totalPages.value) {
-    currentPage.value++
-    emits('update:currentPage', currentPage.value)
-  }
-}
-
-watch(
-  () => props.currentPage,
-  (newValue) => {
-    currentPage.value = newValue
-  }
-)
 </script>
+
 <template>
-  <div class="pagination">
-    <button :disabled="currentPage === 1" @click="goToPage(1)">First</button>
-    <button :disabled="currentPage === 1" @click="prevPage">Prev</button>
-
-    <template v-for="page in visiblePages" :key="page">
-      <button :class="{ active: currentPage === page }" @click="goToPage(page)">
-        {{ page }}
-      </button>
-    </template>
-
-    <button :disabled="currentPage === totalPages" @click="nextPage">
-      Next
-    </button>
-    <button
-      :disabled="currentPage === totalPages"
-      @click="goToPage(totalPages)"
+  <div class="flex items-center justify-center">
+    <!-- <button
+      @click="fetchPage('previous')"
+      :disabled="!pagination.previous"
+      class="pagination-button"
     >
-      Last
-    </button>
+      Previous
+    </button> -->
+    <span
+      class="cursor-pointer pagination-info text-xs w-[30px] h-[30px] rounded flex items-center justify-center"
+      v-for="dotted in pagination.total_pages"
+      :class="dotted === +route.query.page ? 'bg-primary' : 'bg-sec-gray'"
+      @click="changePage(dotted)"
+    >
+      {{ dotted }}
+    </span>
+    <!-- <button
+      @click="fetchPage('next')"
+      :disabled="!pagination.next"
+      class="pagination-button"
+    >
+      Next
+    </button> -->
   </div>
 </template>
 
 <style scoped>
-.pagination {
+.pagination-container {
+  display: flex;
+  justify-content: center;
   margin-top: 20px;
 }
 
-.pagination button {
+.pagination-button {
   margin: 0 5px;
-  padding: 5px 10px;
+  padding: 8px 12px;
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
-  background-color: #f0f0f0;
 }
 
-.pagination button:disabled {
-  cursor: not-allowed;
-}
-
-.pagination button.active {
-  background-color: #007bff;
-  color: #fff;
+.pagination-info {
+  margin: 0 10px;
+  font-size: 14px;
+  line-height: 30px;
 }
 </style>

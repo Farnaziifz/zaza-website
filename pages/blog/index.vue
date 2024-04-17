@@ -6,8 +6,14 @@ import { type categoryList } from '@/core/types/category.type'
 import { getCategoryList } from '@/logics/specifics/category.handler'
 import { getBlogList } from '@/logics/specifics/blog.handler'
 import { type blogList } from '@/core/types/blog.type'
-
+import Pagination from '@/components/shared/pagination/index.vue'
 import _ from 'lodash'
+
+import { useRoute, useRouter } from 'vue-router'
+
+const route = useRoute()
+const router = useRouter()
+console.log(route)
 type filterData = {
   creator: string
   category: number[]
@@ -36,7 +42,7 @@ let filterList = reactive([])
 
 onBeforeMount(async () => {
   categoryData.value = await getCategoryList()
-  blogData.value = await getBlogList()
+  blogData.value = await getBlogList(filterList, route.query?.page)
 })
 
 const addToFilterList = (item: number | string) => {
@@ -46,7 +52,11 @@ const addToFilterList = (item: number | string) => {
 }
 
 const submitFilter = async () => {
-  blogData.value = await getBlogList(filterList)
+  blogData.value = await getBlogList(filterList, route.query?.page)
+}
+const pageChange = async (page: number | string) => {
+  router.push({ path: '/blog', query: { page: page } })
+  blogData.value = await getBlogList(filterList, page)
 }
 </script>
 
@@ -86,6 +96,17 @@ const submitFilter = async () => {
           v-for="blog in blogData.results"
           :key="blog.id"
           :slug="blog.seo_slug"
+        />
+      </div>
+
+      <div v-if="blogData.count">
+        <Pagination
+          :count="blogData.count"
+          :total_pages="blogData.total_pages"
+          :next="blogData.next"
+          :previous="blogData.previous"
+          :current_page="blogData.current_page"
+          @pageChange="pageChange"
         />
       </div>
     </div>

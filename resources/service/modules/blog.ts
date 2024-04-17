@@ -6,9 +6,8 @@ type response = {
   data: blogList
 }
 
-const blogListGet = async (data: number[]): Promise<response> => {
+const blogListGet = async (data: number[], page: number | string): Promise<response> => {
   let queryString = ''
-  console.log(data)
   data?.forEach((number, index) => {
     queryString += `category=${number}`
 
@@ -16,7 +15,7 @@ const blogListGet = async (data: number[]): Promise<response> => {
       queryString += '&'
     }
   })
-  const res = await api.get(`${pageUrl}/post/?${queryString}`)
+  const res = await api.get(`${pageUrl}/post/?page=${page}&${queryString}`)
   return res.data
 }
 
