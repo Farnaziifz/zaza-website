@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { ref, type Ref, onBeforeMount } from 'vue'
 import serach from '../Icons/serach.vue'
+import user from '../Icons/user.vue'
+import basket from '../Icons/basket.vue'
 import MegaMenu from '@/components/shared/MegaMenu/index.vue'
 import { getCategoryList } from '@/logics/specifics/category.handler'
 import { type categoryList } from '@/core/types/category.type'
@@ -61,7 +63,7 @@ onBeforeMount(async () => {
         </div>
         <div class="w-full flex-1 hidden lg:block">
           <div class="w-10 h-10"><user /></div>
-          <div class="w-10 h-10"><user /></div>
+          <div><basket /></div>
         </div>
       </div>
     </div>
@@ -94,7 +96,7 @@ onBeforeMount(async () => {
           </div>
           <div class="h-8 bg-sec-gray w-px mx-2 hidden lg:block"></div>
           <div class="mr-2">
-            <NuxtLink to="faq">
+            <NuxtLink to="/faq">
               <span class="mr-1 font-[dana-light] text-xs lg:text-lg"
                 >سوالی دارید؟</span
               >
@@ -108,7 +110,7 @@ onBeforeMount(async () => {
             </NuxtLink>
           </div>
           <div class="mr-2">
-            <NuxtLink to="blog">
+            <NuxtLink to="/blog">
               <span class="mr-1 font-[dana-light] text-xs lg:text-lg"
                 >مجله زازا</span
               >
