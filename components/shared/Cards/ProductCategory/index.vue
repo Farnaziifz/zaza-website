@@ -31,8 +31,12 @@ const props = defineProps<categoryCardType>()
         </div>
 
         <div>
-          <NuxtLink :to="`/product-category/${props.category.seo_slug}`">
-            <p class="font-[dana-medium] text-md mt-3">خرید کن</p>
+          <NuxtLink
+            :to="`/product-category/${props.category.seo_slug}`"
+            class="flex items-center"
+          >
+            <p class="font-[dana-medium] text-md ml-2">خرید کن</p>
+            <Icon name="ic:outline-arrow-circle-left" size="20px" />
           </NuxtLink>
         </div>
       </div>

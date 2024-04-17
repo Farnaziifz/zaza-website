@@ -1,6 +1,13 @@
 <script lang="ts" setup>
 import MiniProductCard from '@/components/shared/Cards/MiniProduct/index.vue'
 import temp2 from '@/assets/images/temp/2.png'
+import { type productItem } from '~/core/types/product.type'
+type productProps = {
+  product: productItem
+}
+
+const props = defineProps<productProps>()
+
 </script>
 
 <template>

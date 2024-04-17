@@ -57,13 +57,19 @@ onBeforeMount(async () => {
               class="h-full w-44 bg-primary text-white flex items-center justify-center"
             >
               <span class="text-white">جستجو</span>
-              <serach />
+              <Icon name="mdi-light:magnify" size="24px" color="white" />
             </button>
           </div>
         </div>
         <div class="w-full flex-1 hidden lg:block">
-          <div class="w-10 h-10"><user /></div>
-          <div><basket /></div>
+          <div class="w-full flex">
+            <div class="w-10 h-10">
+              <Icon name="mdi-light:account" color="black" size="32px" />
+            </div>
+            <div class="w-10 h-10">
+              <Icon name="mdi-light:briefcase" color="black" size="32px" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -77,20 +83,29 @@ onBeforeMount(async () => {
             @mouseover="toggleMenu"
             @mouseleave="hideMenu"
           >
+            <Icon
+              name="mdi-light:format-align-justify"
+              color="white"
+              size="24px"
+            />
             دسته بندی کالا
           </button>
 
           <div class="mr-2 hidden lg:block">
-            <span>icon</span>
+            <Icon name="mdi-light:diamond" size="20px" color="black" />
             <span class="mr-1 font-[dana-light]">پر فروش‌ترین‌ها</span>
           </div>
           <div class="mr-2 hidden lg:block">
-            <span>icon</span>
+            <Icon name="streamline:discount-percent-coupon" color="black" />
             <span class="mr-1 font-[dana-light]">تخفیف‌ها</span>
           </div>
           <div class="mr-2 hidden lg:block">
             <NuxtLink to="/services">
-              <span>icon</span>
+              <Icon
+                name="healthicons:factory-worker-outline"
+                color="black"
+                size="24px"
+              />
               <span class="mr-1 font-[dana-light]">متخصصین</span>
             </NuxtLink>
           </div>

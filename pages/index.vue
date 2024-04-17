@@ -11,10 +11,14 @@ import BrandSection from '@/components/specific/HomePage/BrandSection/index.vue'
 
 import { getCategoryList } from '@/logics/specifics/category.handler'
 import { getBlogList } from '@/logics/specifics/blog.handler'
-import { getBrandList } from '@/logics/specifics/product.handler'
+import {
+  getBrandList,
+  getProductList,
+} from '@/logics/specifics/product.handler'
 import { type categoryList } from '@/core/types/category.type'
 import { type blogList } from '@/core/types/blog.type'
-import { type brandList } from '@/core/types/product.type'
+import { type brandList, type productList } from '@/core/types/product.type'
+
 const categoryData: Ref<categoryList> = ref({
   count: 0,
   total_pages: 0,
@@ -41,9 +45,36 @@ const brandData: Ref<brandList> = ref({
   current_page: 1,
   results: [],
 })
+const productData: Ref<productList> = ref({
+  id: 0,
+  aggregate_rate: 0,
+  created_at: '',
+  updated_at: '',
+  title: '',
+  short_description: '',
+  description: '',
+  thumbnail: '',
+  length: 0,
+  width: 0,
+  height: 0,
+  weight: 0,
+  is_special: false,
+  is_bestselling: false,
+  seo_slug: '',
+  seo_title: '',
+  seo_description: '',
+  creator: {},
+  brand: [],
+  price: [],
+  category: [],
+  tag: [],
+  gallery: [],
+  property: [],
+})
 
 onBeforeMount(async () => {
   categoryData.value = await getCategoryList()
+  productData.value = await getProductList()
   blogData.value = await getBlogList([], 1)
   brandData.value = await getBrandList()
 })

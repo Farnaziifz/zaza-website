@@ -21,7 +21,7 @@ const props = defineProps<BlogProps>()
       </p>
       <div class="flex mt-2 w-full justify-center lg:justify-start">
         <div class="flex items-center">
-          <p class="text-sm text-text-gray">icon</p>
+          <Icon name="solar:calendar-outline" size="20px" />
           <p class="mr-2 text-sm text-text-gray">
             {{ props.date }}
             <!-- {{ moment.format('jMMMM jYYYY').(props.date) }} -->
