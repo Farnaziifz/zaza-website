@@ -21,6 +21,7 @@ const props = defineProps<blogProps>()
         :id="item.id"
         v-for="item in blog"
         :key="item.id"
+        :slug="item.seo_slug"
       />
     </div>
   </div>

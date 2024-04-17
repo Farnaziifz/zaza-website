@@ -2,6 +2,7 @@
 import ServicesCategory from '@/components/specific/ServicesPage/ServicesCategory/index.vue'
 import ServicesCardSection from '@/components/specific/ServicesPage/SevicesCardSection/index.vue'
 import ServicesLanding from '@/components/specific/ServicesPage/ServicesLanding/index.vue'
+
 </script>
 
 <template>
@@ -10,7 +11,7 @@ import ServicesLanding from '@/components/specific/ServicesPage/ServicesLanding/
     <div class="">
       <ServicesCategory />
       <ServicesCardSection class="mt-14" />
-        <ServicesLanding />
+      <ServicesLanding />
     </div>
   </div>
 </template>

@@ -85,6 +85,7 @@ const submitFilter = async () => {
           :id="blog.id"
           v-for="blog in blogData.results"
           :key="blog.id"
+          :slug="blog.seo_slug"
         />
       </div>
     </div>

@@ -15,20 +15,24 @@ import man2 from '@/assets/images/man/man-3.png'
           برترین متخصصین در سراسر کشور را اینجا میتونید پیدا کنید
         </p>
       </div>
-      <button
-        class="bg-primary p-4 focus:outline-none lg:rounded -mt-10 lg:mt-10 w-full lg:w-auto hidden lg:block"
-      >
-        انتخاب متخصص
-      </button>
+      <NuxtLink to="/services">
+        <button
+          class="bg-primary p-4 focus:outline-none lg:rounded -mt-10 lg:mt-10 w-full lg:w-auto hidden lg:block"
+        >
+          انتخاب متخصص
+        </button>
+      </NuxtLink>
     </div>
     <div>
       <img :src="man2" alt="" />
     </div>
-    <button
-      class="bg-primary p-4 focus:outline-none lg:rounded -mt-10 lg:mt-10 w-full lg:w-auto block lg:hidden"
-    >
-      انتخاب متخصص
-    </button>
+    <NuxtLink to="/services">
+      <button
+        class="bg-primary p-4 focus:outline-none lg:rounded -mt-10 lg:mt-10 w-full lg:w-auto block lg:hidden"
+      >
+        انتخاب متخصص
+      </button>
+    </NuxtLink>
   </div>
 </template>
 

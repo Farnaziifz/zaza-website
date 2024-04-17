@@ -1,5 +1,21 @@
 <script setup lang="ts">
+import { ref, onBeforeMount } from 'vue'
 import temp6 from '@/assets/images/temp/6.png'
+import { type categoryList } from '@/core/types/category.type'
+import { getCategoryList } from '@/logics/specifics/category.handler'
+
+const categoryData: Ref<categoryList> = ref({
+  count: 0,
+  total_pages: 0,
+  next: false,
+  previous: false,
+  current_page: 1,
+  results: [],
+})
+
+onBeforeMount(async () => {
+  categoryData.value = await getCategoryList()
+})
 </script>
 <template>
   <div class="container my-14">
@@ -9,7 +25,7 @@ import temp6 from '@/assets/images/temp/6.png'
     <div class="hidden lg:block">
       <Swiper
         :modules="[SwiperAutoplay, SwiperPagination]"
-        :slides-per-view="6"
+        :slides-per-view="5"
         :loop="true"
         :pagination="{
           el: '.custom-pagination',
@@ -21,10 +37,16 @@ import temp6 from '@/assets/images/temp/6.png'
         }"
         class="w-full mt-14"
       >
-        <SwiperSlide v-for="slide in 10" :key="slide">
-          <div>
-            <img :src="temp6" alt="" />
-            <p class="font-[dana-demi] text-lg text-center">نام دسته بندی</p>
+        <SwiperSlide v-for="slide in categoryData.results" :key="slide.id">
+          <div class="flex flex-col items-center">
+            <img
+              :src="slide.thumbnail_main"
+              :alt="slide.seo_title"
+              class="w-[200px] h-[200px] rounded-[50%]"
+            />
+            <p class="font-[dana-demi] text-lg text-center mt-4">
+              {{ slide.title_service }}
+            </p>
           </div>
         </SwiperSlide>
       </Swiper>
@@ -44,10 +66,16 @@ import temp6 from '@/assets/images/temp/6.png'
         }"
         class="w-full mt-14"
       >
-        <SwiperSlide v-for="slide in 10" :key="slide">
-          <div class="m-auto flex justify-center flex-col items-center">
-            <img :src="temp6" alt="" />
-            <p class="font-[dana-demi] text-lg text-center">نام دسته بندی</p>
+        <SwiperSlide v-for="slide in categoryData.results" :key="slide.id">
+          <div class="flex flex-col items-center">
+            <img
+              :src="slide.thumbnail_main"
+              :alt="slide.seo_title"
+              class="w-[200px] h-[200px] rounded-[50%]"
+            />
+            <p class="font-[dana-demi] text-lg text-center mt-4">
+              {{ slide.title_service }}
+            </p>
           </div>
         </SwiperSlide>
       </Swiper>
