@@ -1,20 +1,8 @@
 type creator = {
   id: number
-  last_login: string
-  is_superuser: boolean
-  username: string
   first_name: string
   last_name: string
-  is_staff: boolean
-  is_active: boolean
-  date_joined: string
-  phone_number: string
   avatar: string
-  national_code: number
-  job: string
-  birth_date: string
-  tax_code: number
-  user_type: string
 }
 
 type category = {

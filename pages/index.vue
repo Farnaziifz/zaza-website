@@ -44,14 +44,17 @@ const brandData: Ref<brandList> = ref({
 
 onBeforeMount(async () => {
   categoryData.value = await getCategoryList()
-  blogData.value = await getBlogList()
+  blogData.value = await getBlogList([], 1)
   brandData.value = await getBrandList()
 })
 </script>
 
 <template>
   <div class="mt-14">
-    <HereSection :category="categoryData.results" />
+    <HereSection
+      :category="categoryData.results"
+      v-if="categoryData.results.length"
+    />
     <SharedCardsZazaFeature class="mt-14" />
     <ProductCategorySection
       class="mt-14 hidden lg:block"

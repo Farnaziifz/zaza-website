@@ -19,15 +19,17 @@ const subCat: Ref<cat[]> = ref([])
 
 onBeforeMount(async () => {
   props.category.forEach((el) => {
-    if (el.parent === null)
+    if (el.children?.length) {
       categoryMain.value.push({ id: +el.id, label: el.title_product })
+    }
   })
 })
 
 const optionMainSelected = (val: cat) => {
-  props.category.forEach((el) => {
-    if (el.parent?.id === val.id)
-      subCat.value.push({ id: +el.id, label: el.title_product })
+  const temp = props.category.filter((el) => el.id === val.id)
+  subCat.value.length = 0
+  temp[0].children.forEach((el) => {
+    subCat.value.push({ id: +el.id, label: el.title_product })
   })
 }
 </script>
