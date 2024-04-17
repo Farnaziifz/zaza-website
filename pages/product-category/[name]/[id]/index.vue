@@ -4,6 +4,11 @@ import ProductCard from '@/components/shared/Cards/ProductCard/index.vue'
 import temp7 from '@/assets/images/temp/7.png'
 import CollapsibleCard from '@/components/shared/CollapsibelCard/index.vue'
 import FilterBox from '@/components/specific/ProductCategory/FilterBox/index.vue'
+import { getProductList } from '@/logics/specifics/product.handler'
+import { type productList } from '~/core/types/product.type'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 const isShowFilter = ref(false)
 
 const openFilterBox = () => {
@@ -12,6 +17,18 @@ const openFilterBox = () => {
 const closeBox = () => {
   isShowFilter.value = false
 }
+const productLisData: Ref<productList> = ref({
+  count: 0,
+  total_pages: 0,
+  next: '',
+  previous: '',
+  current_page: 0,
+  results: [],
+})
+
+onBeforeMount(async () => {
+  productLisData.value = await getProductList([+route.query.id], 1)
+})
 </script>
 
 <template>
@@ -108,12 +125,14 @@ const closeBox = () => {
       </div>
       <div class="lg:col-span-3 col-span-1 w-full">
         <div class="grid lg:grid-cols-3 grid-cols-1 gap-4">
-          <ProductCard :has-border="true" :has-discount="true" />
-          <ProductCard :has-border="true" />
-          <ProductCard :has-border="true" />
-          <ProductCard :has-border="true" />
-          <ProductCard :has-border="true" />
-          <ProductCard :has-border="true" />
+          <template v-for="item in productLisData.results">
+            <ProductCard
+              :has-border="true"
+              v-if="item.seo_slug && item.id"
+              :key="item.id"
+              :productData="item"
+            />
+          </template>
         </div>
       </div>
     </div>

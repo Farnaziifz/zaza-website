@@ -77,13 +77,17 @@ export type productItem = {
   tag: tag[]
   gallery: gallery[]
   property: property[]
+  first_price: {
+    off_price: number
+    price: number
+  }
 }
 
 export type productList = {
   count: number
   total_pages: number | undefined
-  next: boolean | null
-  previous: boolean | null
+  next: string | null
+  previous: string | null
   current_page: number
   results: productItem[]
 }

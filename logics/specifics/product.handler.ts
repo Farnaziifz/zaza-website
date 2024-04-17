@@ -10,7 +10,10 @@ export const getBrandList = async (): Promise<brandList> => {
   return brands
 }
 
-export const getProductList = async (): Promise<productItem> => {
-  const res = await api.getProductList()
+export const getProductList = async (
+  category: number[],
+  page: number | string
+): Promise<productItem> => {
+  const res = await api.getProductList(category, page)
   return res
 }
