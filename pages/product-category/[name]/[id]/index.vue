@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onBeforeMount } from 'vue'
 import ProductCard from '@/components/shared/Cards/ProductCard/index.vue'
 import temp7 from '@/assets/images/temp/7.png'
 import CollapsibleCard from '@/components/shared/CollapsibelCard/index.vue'
 import FilterBox from '@/components/specific/ProductCategory/FilterBox/index.vue'
-
 const isShowFilter = ref(false)
 
 const openFilterBox = () => {

@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import moment from 'jalali-moment'
+
 type BlogProps = {
   img: string
   title: string
@@ -20,7 +22,10 @@ const props = defineProps<BlogProps>()
       <div class="flex mt-2 w-full justify-center lg:justify-start">
         <div class="flex items-center">
           <p class="text-sm text-text-gray">icon</p>
-          <p class="mr-2 text-sm text-text-gray">{{ props.date }}</p>
+          <p class="mr-2 text-sm text-text-gray">
+            {{ props.date }}
+            <!-- {{ moment.format('jMMMM jYYYY').(props.date) }} -->
+          </p>
         </div>
 
         <div class="w-px h-6 bg-sec-gray mx-2"></div>

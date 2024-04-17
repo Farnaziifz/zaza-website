@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onBeforeMount } from 'vue'
 import BlogCard from '@/components/shared/Cards/BlogCard/index.vue'
-import tem3 from '@/assets/images/temp/3.png'
 import { type categoryList } from '@/core/types/category.type'
 import { getCategoryList } from '@/logics/specifics/category.handler'
 import { getBlogList } from '@/logics/specifics/blog.handler'
@@ -13,7 +12,6 @@ import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
 const router = useRouter()
-console.log(route)
 type filterData = {
   creator: string
   category: number[]

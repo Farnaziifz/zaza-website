@@ -42,7 +42,6 @@ const pagination = ref<Pagination>({
   current_page: props.current_page,
 })
 
-console.log(pagination)
 
 const fetchPage = (direction: 'next' | 'previous') => {
   if (direction === 'next' && pagination.value.next) {

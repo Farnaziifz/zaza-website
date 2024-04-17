@@ -1,7 +1,13 @@
 <script lang="ts" setup>
-import temp4 from '@/assets/images/temp/4.png'
+import { type categoryType } from '~/core/types/category.type'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+console.log('hellow', route)
+
 type productCatgeoryLVL1Props = {
   isLeft: boolean
+  catData: categoryType
 }
 
 const props = defineProps<productCatgeoryLVL1Props>()
@@ -15,20 +21,29 @@ const props = defineProps<productCatgeoryLVL1Props>()
       ></div>
       <div class="container grid grid-cols-2 gap-4 h-full">
         <div class="w-full h-full flex items-center justify-center">
-          <img :src="temp4" alt="" />
+          <img
+            :src="props.catData.thumbnail_main"
+            alt=""
+            class="w-[600px] h-[400px] object-cover"
+          />
         </div>
         <div class="w-full h-full flex justify-around flex-col">
           <div>
             <h1 class="font-[dana-extra] text-[32px] mb-7">
-              تجهیزات استخر، سونا و جکوزی
+              {{ props.catData?.title_product }}
             </h1>
+
             <p class="text-text-gray text-lg font-[dana-bold]">
-              تمامی تجهیزات مربوط به استخر، سونا جکوری نما، تعمیرات، ساخت و ....
+              {{ props.catData.short_description_main }}
             </p>
           </div>
-          <button class="w-[250px] h-[70px] rounded bg-primary text-white">
-            مشاهده همه محصولات
-          </button>
+          <NuxtLink
+            :to="`/product-category/${route.params.name}/${props.catData.seo_slug}?id=${props.catData.id}`"
+          >
+            <button class="w-[250px] h-[70px] rounded bg-primary text-white">
+              مشاهده همه محصولات
+            </button>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -40,42 +55,58 @@ const props = defineProps<productCatgeoryLVL1Props>()
         <div class="w-full h-full flex justify-around flex-col">
           <div>
             <h1 class="font-[dana-extra] text-[32px] mb-7">
-              تجهیزات استخر، سونا و جکوزی
+              {{ props.catData.title_product }}
             </h1>
             <p class="text-text-gray text-lg font-[dana-bold]">
-              تمامی تجهیزات مربوط به استخر، سونا جکوری نما، تعمیرات، ساخت و ....
+              {{ props.catData.short_description_main }}
             </p>
           </div>
-          <button class="w-[250px] h-[70px] rounded bg-primary text-white">
-            مشاهده همه محصولات
-          </button>
+          <NuxtLink
+            :to="`/product-category/${route.params.name}/${props.catData.seo_slug}?id=${props.catData.id}`"
+          >
+            <button class="w-[250px] h-[70px] rounded bg-primary text-white">
+              مشاهده همه محصولات
+            </button>
+          </NuxtLink>
         </div>
         <div class="w-full h-full flex items-center justify-center">
-          <img :src="temp4" alt="" />
+          <img
+            :src="props.catData.thumbnail_main"
+            alt=""
+            class="w-[600px] h-[400px] object-cover"
+          />
         </div>
       </div>
     </div>
   </div>
   <div class="block lg:hidden mb-10 relative">
     <div class="w-full h-full flex items-center justify-center">
-      <img :src="temp4" alt="" />
+      <img
+        :src="props.catData.thumbnail_main"
+        alt=""
+        class="w-full h-[300px] object-cover"
+      />
     </div>
     <div
-      class="w-[90%] h-full flex justify-center flex-col mt-10 rounded border-4 border-primary h-full m-auto py-10 -mt-5 px-2"
+      class="w-[90%] h-full flex justify-center flex-col mt-10 rounded border-4 border-primary h-full m-auto py-10 -mt-[30px] px-2"
     >
       <div>
         <h1 class="font-[dana-extra] text-lg mb-7 text-center">
-          تجهیزات استخر، سونا و جکوزی
+          {{ props.catData.title_product }}
         </h1>
         <p class="text-text-gray text-sm font-[dana-bold] text-center">
-          تمامی تجهیزات مربوط به استخر، سونا جکوری نما، تعمیرات، ساخت و ....
+          {{ props.catData.short_description_main }}
         </p>
       </div>
-      <button
-        class="w-[250px] h-[48px] rounded bg-primary text-white mt-10 m-auto"
+      <NuxtLink
+        :to="`/product-category/${route.params.name}/${props.catData.seo_slug}?id=${props.catData.id}`"
       >
-        مشاهده همه محصولات
-      </button>
+        <button
+          class="w-[250px] h-[48px] rounded bg-primary text-white mt-10 m-auto"
+        >
+          مشاهده همه محصولات
+        </button>
+      </NuxtLink>
     </div>
   </div>
 </template>
