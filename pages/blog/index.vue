@@ -8,6 +8,11 @@ import { getBlogList } from '@/logics/specifics/blog.handler'
 import { type blogList } from '@/core/types/blog.type'
 
 import _ from 'lodash'
+type filterData = {
+  creator: string
+  category: number[]
+  status: string
+}
 
 const categoryData: Ref<categoryList> = ref({
   count: 0,
@@ -27,14 +32,21 @@ const blogData: Ref<blogList> = ref({
   results: [],
 })
 
-const filterList = ref([])
+let filterList = reactive([])
+
 onBeforeMount(async () => {
   categoryData.value = await getCategoryList()
   blogData.value = await getBlogList()
 })
 
-const addToFilterList = (item: number) => {
-  // if (filterList.find((el) => el === item)) console.log('salam')
+const addToFilterList = (item: number | string) => {
+  if (filterList.find((el) => el === item))
+    filterList = filterList.filter((nm) => nm !== item)
+  else filterList.push(item)
+}
+
+const submitFilter = async () => {
+  blogData.value = await getBlogList(filterList)
 }
 </script>
 
@@ -56,7 +68,10 @@ const addToFilterList = (item: number) => {
             @change="addToFilterList(cat.id)"
           />
         </div>
-        <button class="bg-primary w-full rounded text-white py-2 mt-5">
+        <button
+          class="bg-primary w-full rounded text-white py-2 mt-5"
+          @click="submitFilter"
+        >
           اعمال فیلتر
         </button>
       </div>
