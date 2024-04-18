@@ -57,7 +57,7 @@ const pageChange = async (page: number | string) => {
 
 <template>
   <div class="container grid grid-cols-4 gap-4 mt-14">
-    <div class="col-span-1">
+    <div class="lg:col-span-1 col-span-12">
       <div class="border border-sec-gray rounded p-4">
         <p class="text-[20px] font-[dana-demi] mb-10">دسته‌بندی</p>
         <div
@@ -81,8 +81,8 @@ const pageChange = async (page: number | string) => {
         </button>
       </div>
     </div>
-    <div class="col-span-3 w-full">
-      <div class="grid grid-cols-3 gap-4">
+    <div class="lg:col-span-3 w-full col-span-12">
+      <div class="grid lg:grid-cols-3 col-span-1 gap-4">
         <BlogCard
           :img="blog.thumbnail"
           :title="blog.title"

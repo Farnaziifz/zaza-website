@@ -8,8 +8,10 @@ definePageMeta({
 
 <template>
   <div class="w-full h-screen flex justify-center items-center">
-    <div class="rounded border  lg:border-sec-gray p-10 text-center">
-      <img :src="Logo" alt="zaza kala" class="mb-4 w-40 mx-auto" />
+    <div class="rounded border lg:border-sec-gray p-10 text-center">
+      <NuxtLink to="/">
+        <img :src="Logo" alt="zaza kala" class="mb-4 w-40 mx-auto" />
+      </NuxtLink>
       <p class="font-[dana-extra] font-xl">ورود | ثبت‌نام</p>
       <p class="font-[dana-light] mt-3">سلام!</p>
       <p class="font-[dana-light] mt-3">

@@ -65,7 +65,6 @@ import cert3 from '@/assets/images/cert3.svg'
         </div>
         <div class="flex w-full justify-between mt-4">
           <img :src="cert1" alt="" />
-          <!-- <img :src="cert2" alt="" /> -->
           <a
             referrerpolicy="origin"
             target="_blank"
@@ -84,7 +83,6 @@ import cert3 from '@/assets/images/cert3.svg'
               class="entered litespeed-loaded"
             />
           </a>
-          <!-- <img :src="cert3" alt="" /> -->
           <a
             referrerpolicy="origin"
             target="_blank"
