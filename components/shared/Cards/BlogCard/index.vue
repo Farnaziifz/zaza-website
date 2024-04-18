@@ -1,10 +1,5 @@
 <script lang="ts" setup>
-import moment from 'jalali-moment'
-import {
-  getPersianNameOfMonth,
-  getPersianYear,
-  convertDateArrayToDateString
-} from '@/logics/shared/date.handler'
+import { getPersianYear } from '@/logics/shared/date.handler'
 
 type BlogProps = {
   img: string
@@ -18,7 +13,7 @@ const props = defineProps<BlogProps>()
 </script>
 
 <template>
-  <NuxtLink :to="`/blog/${props.slug}`">
+  <NuxtLink :to="`/blog/${props.slug}?id=${props.id}`">
     <div class="w-full flex flex-col cursor-pointer mb-10">
       <img :src="img" alt="" class="w-full h-[400px] object-cover" />
       <p class="mt-3 font-[dana-medium] text-lg text-center lg:text-right">

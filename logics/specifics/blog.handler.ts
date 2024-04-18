@@ -1,5 +1,5 @@
 import { blogApi } from '~/resources/service/modules/blog'
-import { type blogList } from '~/core/types/blog.type'
+import { type blogItem, type blogList } from '~/core/types/blog.type'
 
 const api = blogApi()
 
@@ -11,4 +11,9 @@ export const getBlogList = async (
   const blogList = res
 
   return blogList
+}
+
+export const getBlogData = async (id: string | number): Promise<blogItem> => {
+  const res = await api.getBlogData(id)
+  return res
 }
