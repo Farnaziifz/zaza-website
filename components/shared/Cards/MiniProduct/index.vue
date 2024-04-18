@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-import temp2 from '@/assets/images/temp/2.png'
+import { toPersianCurrency } from '~/logics/shared/toPersianCurrency'
 
 type productProps = {
   name: string
   discount: boolean
-  price: number
-  priceAfterDiscount: number
+  price: number | string
+  priceAfterDiscount: number | string
   img: string
 }
 
@@ -24,13 +24,13 @@ const props = defineProps<productProps>()
           class="font-[dana-extra] text-md text-[#105100]"
           :class="{ 'has-discount text-[#CCCCCC]': discount }"
         >
-          {{ props.price }} ریال
+          {{ toPersianCurrency(props.price) }}
         </p>
         <p
           class="font-[dana-extra] text-md text-[#105100] mr-5"
           v-if="props.discount"
         >
-          {{ props.priceAfterDiscount }} ریال
+          {{ props.priceAfterDiscount }}
         </p>
       </div>
     </div>

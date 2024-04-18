@@ -14,10 +14,15 @@ import { getBlogList } from '@/logics/specifics/blog.handler'
 import {
   getBrandList,
   getProductList,
+  getPromoteProduct,
 } from '@/logics/specifics/product.handler'
 import { type categoryList } from '@/core/types/category.type'
 import { type blogList } from '@/core/types/blog.type'
-import { type brandList, type productList } from '@/core/types/product.type'
+import {
+  type brandList,
+  type productList,
+  type promoted,
+} from '@/core/types/product.type'
 
 const categoryData: Ref<categoryList> = ref({
   count: 0,
@@ -26,6 +31,12 @@ const categoryData: Ref<categoryList> = ref({
   previous: false,
   current_page: 1,
   results: [],
+})
+
+const promotedProduct: Ref<promoted> = ref({
+  specials: [],
+  bestsellings: [],
+  sales: [],
 })
 
 const blogData: Ref<blogList> = ref({
@@ -74,9 +85,10 @@ const productData: Ref<productList> = ref({
 
 onBeforeMount(async () => {
   categoryData.value = await getCategoryList()
-  productData.value = await getProductList()
+  productData.value = await getProductList([], 1)
   blogData.value = await getBlogList([], 1)
   brandData.value = await getBrandList()
+  promotedProduct.value = await getPromoteProduct()
 })
 </script>
 
@@ -97,7 +109,7 @@ onBeforeMount(async () => {
       :category="categoryData.results"
     />
 
-    <SpecialProductSection class="mt-14" />
+    <SpecialProductSection class="mt-14" :product="promotedProduct" />
     <BlogSection class="mt-14" :blog="blogData.results.slice(0, 3)" />
     <BrandSection class="mt-14" :brands="brandData" />
   </div>

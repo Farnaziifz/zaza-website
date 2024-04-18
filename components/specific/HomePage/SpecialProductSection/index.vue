@@ -1,13 +1,12 @@
 <script lang="ts" setup>
 import MiniProductCard from '@/components/shared/Cards/MiniProduct/index.vue'
 import temp2 from '@/assets/images/temp/2.png'
-import { type productItem } from '~/core/types/product.type'
+import { type promoted } from '~/core/types/product.type'
 type productProps = {
-  product: productItem
+  product: promoted
 }
 
 const props = defineProps<productProps>()
-
 </script>
 
 <template>
@@ -20,22 +19,13 @@ const props = defineProps<productProps>()
       </h3>
       <div class="mt-10 flex flex-col gap-y-6">
         <MiniProductCard
-          name="صفحه اهنبر مینی"
-          :price="120000"
-          :img="temp2"
-          :discount="false"
-        />
-        <MiniProductCard
-          name="صفحه اهنبر مینی"
-          :price="120000"
-          :img="temp2"
-          :discount="false"
-        />
-        <MiniProductCard
-          name="صفحه اهنبر مینی"
-          :price="120000"
-          :img="temp2"
-          :discount="false"
+          v-for="pr in props.product.bestsellings"
+          :key="pr.title"
+          :name="pr.title"
+          :price="pr.first_price.price"
+          :img="pr.thumbnail"
+          :discount="pr.first_price.off_percent ? true : false"
+          :priceAfterDiscount="pr.first_price.off_price"
         />
       </div>
     </div>
@@ -47,25 +37,13 @@ const props = defineProps<productProps>()
       </h3>
       <div class="mt-10 flex flex-col gap-y-6">
         <MiniProductCard
-          name="صفحه اهنبر مینی"
-          :price="120000"
-          :img="temp2"
-          :price-after-discount="90000"
-          :discount="true"
-        />
-        <MiniProductCard
-          name="صفحه اهنبر مینی"
-          :price="120000"
-          :img="temp2"
-          :price-after-discount="90000"
-          :discount="true"
-        />
-        <MiniProductCard
-          name="صفحه اهنبر مینی"
-          :price="120000"
-          :img="temp2"
-          :discount="true"
-          :price-after-discount="90000"
+          v-for="pr in props.product.sales"
+          :key="pr.title"
+          :name="pr.title"
+          :price="pr.first_price.price"
+          :img="pr.thumbnail"
+          :discount="pr.first_price.off_percent ? true : false"
+          :priceAfterDiscount="pr.first_price.off_price"
         />
       </div>
     </div>
@@ -77,22 +55,13 @@ const props = defineProps<productProps>()
       </h3>
       <div class="mt-10 flex flex-col gap-y-6">
         <MiniProductCard
-          name="صفحه اهنبر مینی"
-          :price="120000"
-          :img="temp2"
-          :discount="false"
-        />
-        <MiniProductCard
-          name="صفحه اهنبر مینی"
-          :price="120000"
-          :img="temp2"
-          :discount="false"
-        />
-        <MiniProductCard
-          name="صفحه اهنبر مینی"
-          :price="120000"
-          :img="temp2"
-          :discount="false"
+          v-for="pr in props.product.specials"
+          :key="pr.title"
+          :name="pr.title"
+          :price="pr.first_price.price"
+          :img="pr.thumbnail"
+          :discount="pr.first_price.off_percent ? true : false"
+          :priceAfterDiscount="pr.first_price.off_price"
         />
       </div>
     </div>

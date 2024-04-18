@@ -92,3 +92,17 @@ export type productList = {
   current_page: number
   results: productItem[]
 }
+export type promotedItem = {
+  title: string
+  thumbnail: string
+  first_price: {
+    off_price: number
+    price: number
+    off_percent: number
+  }
+}
+export type promoted = {
+  specials: promotedItem[]
+  bestsellings: promotedItem[]
+  sales: promotedItem[]
+}
