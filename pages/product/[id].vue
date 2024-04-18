@@ -50,7 +50,10 @@ onBeforeMount(async () => {
       <span class="mx-2 text-text-gray text-xs">></span>
       <span>اسم محصول</span>
     </div>
-    <ProductHero :product-data="productData"/>
+    <ProductHero
+      :product-data="productData"
+      v-if="productData.first_price.price"
+    />
     <Specifications class="mt-10" />
     <WonderBox class="mt-14" />
     <DescBox class="mt-10" />

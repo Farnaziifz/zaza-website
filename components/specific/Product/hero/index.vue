@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import temp8 from '@/assets/images/temp/8.png'
 import temp9 from '@/assets/images/temp/9.png'
-import temp10 from '@/assets/images/temp/10.png'
 import approvalIcon from '@/assets/images/icons/Approval.png'
 import ExerciseIcon from '@/assets/images/icons/Exercise.png'
 import StallIcon from '@/assets/images/icons/Stall.png'
@@ -27,7 +26,7 @@ const first_price = ref({
   off_percent: 0,
   price: 0,
 })
-
+const mainImage = ref('')
 onBeforeMount(() => {
   props.productData.price?.forEach((el) => {
     pricesOption.value.push({ id: el.id, label: el.title })
@@ -35,9 +34,19 @@ onBeforeMount(() => {
   first_price.value.off_percent = props.productData.first_price.off_percent
   first_price.value.off_price = props.productData.first_price.off_price
   first_price.value.price = props.productData.first_price.price
+  mainImage.value = props.productData.thumbnail
+  console.log('asdsds', mainImage.value)
 })
-console.log(pricesOption)
-const optionSelected = (val: cat) => {}
+const optionSelected = (val: cat) => {
+  const temp = props.productData.price.filter((el) => el.title === val.label)
+  first_price.value.off_percent = temp[0].off_percent
+  first_price.value.price = temp[0].price
+  first_price.value.off_price = temp[0].off_price
+  first_price.value.quantity_in_stock = temp[0].quantity_in_stock
+}
+const changeImage = (file: string) => {
+  mainImage.value = file
+}
 </script>
 
 <template>
@@ -49,16 +58,22 @@ const optionSelected = (val: cat) => {}
         </h1>
       </div>
       <div class="w-full">
-        <img
-          :src="props.productData?.gallery[0]?.file"
-          alt=""
-          class="w-full h-[500px]"
-        />
+        <img :src="mainImage" alt="" class="w-full h-[500px] object-cover" />
       </div>
-      <div class="grid grid-cols-3 gap-4 mt-4">
-        <img :src="temp8" alt="" class="w-full" />
-        <img :src="temp9" alt="" class="w-full" />
-        <img :src="temp8" alt="" class="w-full" />
+      <div class="grid grid-cols-4 gap-4 mt-4">
+        <img
+          :src="img.file"
+          alt=""
+          v-for="img in productData.gallery"
+          class="w-full h-[100px] object-cover"
+          @click="changeImage(img.file)"
+        />
+        <img
+          :src="props.productData.thumbnail"
+          alt=""
+          class="w-full h-[100px] object-cover"
+          @click="changeImage(props.productData.thumbnail)"
+        />
       </div>
     </div>
     <div class="col-span-2 hidden lg:block">
@@ -77,7 +92,7 @@ const optionSelected = (val: cat) => {}
               عرض:{{ props.productData.height }}متر
             </p>
             <p class="font-[dana-demi] mb-2">
-              وزن:{{ props.productData.weight }}متر
+              وزن: {{ props.productData.weight }} کیلوگرم
             </p>
             <p class="font-[dana-demi] mb-2">
               طول:{{ props.productData.length }}متر
@@ -98,7 +113,9 @@ const optionSelected = (val: cat) => {}
                 برای نصب نیاز به کمک دارید؟
               </p>
               <NuxtLink to="/services">
-                <button class="bg-primary rounded py-2 font-[dana-demi]">
+                <button
+                  class="bg-primary rounded py-2 font-[dana-demi] text-xs px-2"
+                >
                   انتخاب متخصص
                 </button>
               </NuxtLink>
@@ -146,7 +163,9 @@ const optionSelected = (val: cat) => {}
           </div>
 
           <div class="flex mt-10 justify-between items-center">
-            <p class="text-[#ED0000] text-sm">تنها ۱ عدد در انبار باقی مانده</p>
+            <p class="text-[#ED0000] text-sm">
+              تنها {{ first_price.quantity_in_stock }} عدد در انبار باقی مانده
+            </p>
             <button
               class="bg-primary rounded py-3 px-4 font-[dana-bold] text-[20px]"
             >
@@ -190,6 +209,14 @@ const optionSelected = (val: cat) => {}
           <img :src="ExerciseIcon" alt="" />
           <p class="mr-2 font-[dana-demi] text-sm">ارسال سریع</p>
         </div>
+      </div>
+      <div class="prices px-5">
+        <p class="mb-1">انتخاب نوع محصول</p>
+        <DropDown
+          :options="pricesOption"
+          v-if="pricesOption.length"
+          @optionSelected="optionSelected"
+        />
       </div>
     </div>
   </div>

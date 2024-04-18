@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import MiniProductCard from '@/components/shared/Cards/MiniProduct/index.vue'
-import temp2 from '@/assets/images/temp/2.png'
 import { type promoted } from '~/core/types/product.type'
 type productProps = {
   product: promoted
@@ -27,6 +26,9 @@ const props = defineProps<productProps>()
           :discount="pr.first_price.off_percent ? true : false"
           :priceAfterDiscount="pr.first_price.off_price"
         />
+        <NuxtLink :to="`/product`">
+          <p>مشاهده همه</p>
+        </NuxtLink>
       </div>
     </div>
     <div>
@@ -45,6 +47,9 @@ const props = defineProps<productProps>()
           :discount="pr.first_price.off_percent ? true : false"
           :priceAfterDiscount="pr.first_price.off_price"
         />
+        <NuxtLink :to="`/product`">
+          <p>مشاهده همه</p>
+        </NuxtLink>
       </div>
     </div>
     <div>
@@ -63,6 +68,9 @@ const props = defineProps<productProps>()
           :discount="pr.first_price.off_percent ? true : false"
           :priceAfterDiscount="pr.first_price.off_price"
         />
+        <NuxtLink :to="`/product`">
+          <p>مشاهده همه</p>
+        </NuxtLink>
       </div>
     </div>
   </div>
