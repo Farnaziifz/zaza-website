@@ -65,8 +65,43 @@ import cert3 from '@/assets/images/cert3.svg'
         </div>
         <div class="flex w-full justify-between mt-4">
           <img :src="cert1" alt="" />
-          <img :src="cert2" alt="" />
-          <img :src="cert3" alt="" />
+          <!-- <img :src="cert2" alt="" /> -->
+          <a
+            referrerpolicy="origin"
+            target="_blank"
+            href="https://trustseal.enamad.ir/?id=358706&amp;Code=Y7Lej2Z0gre6RZcvBnXY"
+          >
+            <img
+              data-lazyloaded="1"
+              data-placeholder-resp="125x136"
+              :src="cert2"
+              referrerpolicy="origin"
+              :data-src="cert2"
+              alt="Enamad"
+              id="Y7Lej2Z0gre6RZcvBnXY"
+              style="width: 100px; height: 100px; cursor: pointer"
+              data-ll-status="loaded"
+              class="entered litespeed-loaded"
+            />
+          </a>
+          <!-- <img :src="cert3" alt="" /> -->
+          <a
+            referrerpolicy="origin"
+            target="_blank"
+            href="https://apinovin.iranianasnaf.ir/parvaneh/62f99d03-ba38-47fd-afa9-78b6c85ae8f7/html"
+          >
+            <img
+              data-lazyloaded="1"
+              data-placeholder-resp="168x222"
+              :src="cert3"
+              referrerpolicy="origin"
+              :data-src="cert3"
+              alt="kasbokar"
+              style="width: 100px; height: 100px; cursor: pointer"
+              data-ll-status="loaded"
+              class="entered litespeed-loaded"
+            />
+          </a>
         </div>
       </div>
     </div>
