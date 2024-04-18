@@ -1,5 +1,10 @@
 <script lang="ts" setup>
 import moment from 'jalali-moment'
+import {
+  getPersianNameOfMonth,
+  getPersianYear,
+  convertDateArrayToDateString
+} from '@/logics/shared/date.handler'
 
 type BlogProps = {
   img: string
@@ -23,8 +28,8 @@ const props = defineProps<BlogProps>()
         <div class="flex items-center">
           <Icon name="solar:calendar-outline" size="20px" />
           <p class="mr-2 text-sm text-text-gray">
-            {{ props.date }}
-            <!-- {{ moment.format('jMMMM jYYYY').(props.date) }} -->
+            <!-- {{ convertDateArrayToDateString(props.date) }} -->
+            {{ getPersianYear(props.date, 'YYYY/MM/DD') }}
           </p>
         </div>
 

@@ -127,7 +127,7 @@ onBeforeMount(async () => {
             </NuxtLink>
           </div>
           <div class="mr-2">
-            <NuxtLink to="/blog">
+            <NuxtLink to="/blog?page=1">
               <span class="mr-1 font-[dana-light] text-xs lg:text-lg"
                 >مجله زازا</span
               >

@@ -12,11 +12,6 @@ import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
 const router = useRouter()
-type filterData = {
-  creator: string
-  category: number[]
-  status: string
-}
 
 const categoryData: Ref<categoryList> = ref({
   count: 0,
@@ -50,7 +45,9 @@ const addToFilterList = (item: number | string) => {
 }
 
 const submitFilter = async () => {
-  blogData.value = await getBlogList(filterList, route.query?.page)
+  blogData.value = await getBlogList(filterList, 1)
+  console.log(blogData.value)
+  router.push({ path: '/blog', query: { page: 1 } })
 }
 const pageChange = async (page: number | string) => {
   router.push({ path: '/blog', query: { page: page } })
@@ -89,7 +86,7 @@ const pageChange = async (page: number | string) => {
         <BlogCard
           :img="blog.thumbnail"
           :title="blog.title"
-          :date="blog.created_at"
+          :date="blog.updated_at"
           :id="blog.id"
           v-for="blog in blogData.results"
           :key="blog.id"
