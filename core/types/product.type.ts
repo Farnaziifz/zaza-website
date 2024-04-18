@@ -51,6 +51,9 @@ type property = {
   created_at: string
   updated_at: string
   value: string
+  title: {
+    title: string
+  }
 }
 export type productItem = {
   id: number
@@ -76,7 +79,7 @@ export type productItem = {
   category: categoryType[]
   tag: tag[]
   gallery: gallery[]
-  property: property[]
+  product_property: property[]
   first_price: {
     off_price: number
     price: number

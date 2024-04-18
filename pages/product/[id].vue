@@ -54,9 +54,9 @@ onBeforeMount(async () => {
       :product-data="productData"
       v-if="productData.first_price.price"
     />
-    <Specifications class="mt-10" />
+    <Specifications class="mt-10" :data="productData" />
     <WonderBox class="mt-14" />
-    <DescBox class="mt-10" />
+    <DescBox class="mt-10" :desc="productData.description" />
     <CommentBox class="mt-10" />
   </div>
 </template>

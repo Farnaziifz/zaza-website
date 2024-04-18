@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import temp8 from '@/assets/images/temp/8.png'
-import temp9 from '@/assets/images/temp/9.png'
 import approvalIcon from '@/assets/images/icons/Approval.png'
 import ExerciseIcon from '@/assets/images/icons/Exercise.png'
 import StallIcon from '@/assets/images/icons/Stall.png'
@@ -35,7 +33,6 @@ onBeforeMount(() => {
   first_price.value.off_price = props.productData.first_price.off_price
   first_price.value.price = props.productData.first_price.price
   mainImage.value = props.productData.thumbnail
-  console.log('asdsds', mainImage.value)
 })
 const optionSelected = (val: cat) => {
   const temp = props.productData.price.filter((el) => el.title === val.label)
