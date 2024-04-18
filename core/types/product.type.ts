@@ -80,6 +80,7 @@ export type productItem = {
   first_price: {
     off_price: number
     price: number
+    off_percent: number
   }
 }
 

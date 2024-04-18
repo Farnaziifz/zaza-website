@@ -1,6 +1,6 @@
 import { api } from '@/resources/service/index'
 import { type brandList } from '~/core/types/product.type'
-import { type productList } from '@/core/types/product.type'
+import { type productList, type productItem } from '@/core/types/product.type'
 
 const pageUrl = 'product'
 type BrandResponse = {
@@ -32,10 +32,14 @@ const productList = async (
   const res = await api.get(`${pageUrl}/product/?page=${page}&${queryString}`)
   return res.data
 }
-
+const productData = async (id: number | string): Promise<productItem> => {
+  const res = await api.get(`${pageUrl}/product/${id}`)
+  return res.data
+}
 export const productApi = () => {
   return {
     getBrandList: brandListGet,
     getProductList: productList,
+    getProductData: productData,
   }
 }

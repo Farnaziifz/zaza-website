@@ -4,6 +4,40 @@ import WonderBox from '@/components/shared/WonderBox/index.vue'
 import DescBox from '@/components/specific/Product/Description/index.vue'
 import CommentBox from '@/components/specific/Product/Comment/index.vue'
 import Specifications from '@/components/specific/Product/Specifications/index.vue'
+import { type productItem } from '~/core/types/product.type'
+import { getProductData } from '@/logics/specifics/product.handler'
+import { useRoute } from 'vue-router'
+const route = useRoute()
+const productData: Ref<productItem> = ref({
+  id: 0,
+  aggregate_rate: 0,
+  created_at: '',
+  updated_at: '',
+  title: '',
+  short_description: '',
+  description: '',
+  thumbnail: '',
+  length: 0,
+  width: 0,
+  height: 0,
+  weight: 0,
+  is_special: false,
+  is_bestselling: false,
+  seo_slug: '',
+  seo_title: '',
+  seo_description: '',
+  creator: {},
+  brand: {},
+  price: [],
+  category: [],
+  tag: [],
+  gallery: [],
+  property: [],
+  first_price: {},
+})
+onBeforeMount(async () => {
+  productData.value = await getProductData(route.query.id)
+})
 </script>
 <template>
   <div class="container">
@@ -16,7 +50,7 @@ import Specifications from '@/components/specific/Product/Specifications/index.v
       <span class="mx-2 text-text-gray text-xs">></span>
       <span>اسم محصول</span>
     </div>
-    <ProductHero />
+    <ProductHero :product-data="productData"/>
     <Specifications class="mt-10" />
     <WonderBox class="mt-14" />
     <DescBox class="mt-10" />

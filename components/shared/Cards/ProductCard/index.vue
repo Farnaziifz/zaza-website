@@ -13,7 +13,7 @@ const props = defineProps<productCardProps>()
 
 <template>
   <NuxtLink
-    :to="`/product/${props.productData?.seo_slug}?id=${props.productData.id}`"
+    :to="`/product/${props.productData?.seo_slug}?id=${props.productData?.id}`"
   >
     <div
       class="w-full bg-white rounded p-4 cursor-pointer"

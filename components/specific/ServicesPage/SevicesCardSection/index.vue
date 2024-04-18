@@ -10,17 +10,20 @@ import man4 from '@/assets/images/man/man-4.png'
       <img :src="logo" alt="" class="w-60 h-60 opacity-50 hidden lg:block" />
     </div>
     <div class="border rounded border-sec-gray p-4">
-      <h2 class="text-center text-[40px] font-[dana-bold] mt-4">
-        برای مشتریان
-      </h2>
-      <p class="font-[dana-bold] text-[22px] mt-4 text-center">
-        فرصت همکاری با برترین متخصص کشور
-      </p>
-      <div class="w-full flex justify-center mb-4">
-        <button class="bg-primary px-4 py-2 mt-20 rounded">
-          ورود و ثبت نام
-        </button>
-      </div>
+      <NuxtLink to="/login">
+        <h2 class="text-center text-[40px] font-[dana-bold] mt-4">
+          برای مشتریان
+        </h2>
+
+        <p class="font-[dana-bold] text-[22px] mt-4 text-center">
+          فرصت همکاری با برترین متخصص کشور
+        </p>
+        <div class="w-full flex justify-center mb-4">
+          <button class="bg-primary px-4 py-2 mt-20 rounded">
+            ورود و ثبت نام
+          </button>
+        </div>
+      </NuxtLink>
     </div>
     <div class="border rounded border-sec-gray p-4">
       <h2 class="text-center text-[40px] font-[dana-bold] mt-4">

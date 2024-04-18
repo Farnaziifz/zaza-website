@@ -64,7 +64,9 @@ onBeforeMount(async () => {
         <div class="w-full flex-1 hidden lg:block">
           <div class="w-full flex">
             <div class="w-10 h-10">
-              <Icon name="mdi-light:account" color="black" size="32px" />
+              <NuxtLink to="/login">
+                <Icon name="mdi-light:account" color="black" size="32px" />
+              </NuxtLink>
             </div>
             <div class="w-10 h-10">
               <Icon name="mdi-light:briefcase" color="black" size="32px" />

@@ -5,6 +5,6 @@ export const toPersianCurrency = (
 ) => {
   symbol = symbol != null ? symbol : 'ریال'
   const filterd =
-    number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' ' + symbol
+    number?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + ' ' + symbol
   return filterd
 }

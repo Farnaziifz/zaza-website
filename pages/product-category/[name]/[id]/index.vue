@@ -37,9 +37,9 @@ onBeforeMount(async () => {
     <div class="my-4 mt-[100px] lg:mt-1">
       <span class="font-sm text-text-gray">خانه</span
       ><span class="mx-2 text-text-gray">></span
-      ><span class="font-sm text-text-gray">استخر و لوله کشی</span>
+      ><span class="font-sm text-text-gray">{{ route.params.name }}</span>
       <span class="mx-2 text-text-gray">></span>
-      <span>استخر و لوله کشی</span>
+      <span>{{ route.params.id }}</span>
     </div>
     <div class="grid lg:grid-cols-4 grid-cols-1 gap-4">
       <div class="w-full">

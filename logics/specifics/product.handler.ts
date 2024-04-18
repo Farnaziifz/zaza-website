@@ -17,3 +17,10 @@ export const getProductList = async (
   const res = await api.getProductList(category, page)
   return res
 }
+
+export const getProductData = async (
+  id: number | string
+): Promise<productItem> => {
+  const res = await api.getProductData(id)
+  return res
+}
