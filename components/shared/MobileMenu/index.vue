@@ -1,6 +1,27 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router'
+import SearchModal from '@/components/shared/SearchModalMobile/index.vue'
+import { getCategoryList } from '@/logics/specifics/category.handler'
+import { type categoryList } from '@/core/types/category.type'
+
 const currentRouteName = useRoute().name
+const isModalOpen = ref(false)
+const openModal = () => {
+  isModalOpen.value = true
+}
+
+const categoryData: Ref<categoryList> = ref({
+  count: 0,
+  total_pages: 0,
+  next: false,
+  previous: false,
+  current_page: 1,
+  results: [],
+})
+
+onBeforeMount(async () => {
+  categoryData.value = await getCategoryList()
+})
 </script>
 
 <template>
@@ -12,7 +33,7 @@ const currentRouteName = useRoute().name
       <button class="bg-primary rounded w-full py-2">درخواست همکاری</button>
     </div>
     <div class="container px-4 grid grid-cols-4">
-      <div class="text-center">
+      <div class="text-center" @click="openModal">
         <Icon
           name="material-symbols-light:production-quantity-limits"
           size="24px"
@@ -42,6 +63,12 @@ const currentRouteName = useRoute().name
         <p class="mt-1 text-xs">حساب کاربری</p>
       </div>
     </div>
+    <SearchModal
+      :isOpen="isModalOpen"
+      @update:isOpen="isModalOpen = $event"
+      :category="categoryData.results"
+      v-if="categoryData.results.length"
+    />
   </div>
 </template>
 

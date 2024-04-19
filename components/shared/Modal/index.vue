@@ -10,7 +10,6 @@ const emits = defineEmits(['update:isOpen'])
 const closeModal = () => {
   emits('update:isOpen', false)
 }
-console.log('salam')
 </script>
 
 <template>
