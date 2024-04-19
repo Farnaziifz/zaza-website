@@ -103,6 +103,7 @@ const submitSearch = () => {
             title="انتخاب دسته‌بندی دوم"
             :options="subCat"
             @optionSelected="subSelected"
+            v-if="catMainValue.label"
           />
         </div>
         <div class="px-4">

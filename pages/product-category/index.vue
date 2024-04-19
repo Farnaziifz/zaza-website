@@ -20,12 +20,16 @@ console.log(categoryData.value)
 
 <template>
   <div class="mt-20" v-if="categoryData.results?.length">
-    <template v-for="item in categoryData?.results">
-      <ProductCategory
-        :category="item"
-        class="mb-4"
-        v-if="item.children?.length"
-      />
-    </template>
+    <div class="container">
+      <div class="lg:grid lg:grid-cols-3 lg:gap-4">
+        <template v-for="item in categoryData?.results">
+          <ProductCategory
+            :category="item"
+            class="mb-4"
+            v-if="item.children?.length"
+          />
+        </template>
+      </div>
+    </div>
   </div>
 </template>

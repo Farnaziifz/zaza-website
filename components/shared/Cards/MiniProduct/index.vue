@@ -14,7 +14,7 @@ const props = defineProps<productProps>()
 
 <template>
   <div class="w-full flex items-center justify-start">
-    <img :src="props.img" alt="" />
+    <img :src="props.img" alt="" class="w-[100px] h-[100px] ml-4" />
     <div class="flex flex-col">
       <p class="text-[#4E4E4E] font-[dana-extra] text-[20px] text-right mb-3">
         {{ props.name }}

@@ -22,9 +22,15 @@ const brandListGet = async (): Promise<BrandResponse> => {
   return res.data
 }
 
+const brandItemGet = async (id: string | number): Promise<productItem> => {
+  const res = await api.get(`${pageUrl}/brand/${id}`)
+  return res.data
+}
+
 const productList = async (
   category: number[],
-  page: number | string
+  page: number | string,
+  brand: string | number
 ): Promise<ProductList> => {
   let queryString = ''
   category?.forEach((number, index) => {
@@ -35,7 +41,9 @@ const productList = async (
     }
   })
 
-  const res = await api.get(`${pageUrl}/product/?page=${page}&${queryString}`)
+  const res = await api.get(
+    `${pageUrl}/product/?page=${page}&${queryString}&brand=${brand}`
+  )
   return res.data
 }
 const productData = async (id: number | string): Promise<productItem> => {
@@ -53,5 +61,6 @@ export const productApi = () => {
     getProductList: productList,
     getProductData: productData,
     getPromoteProduct: getPromotedProduct,
+    brandItemGet: brandItemGet,
   }
 }
