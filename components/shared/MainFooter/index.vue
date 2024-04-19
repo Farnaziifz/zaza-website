@@ -19,7 +19,7 @@ import cert3 from '@/assets/images/cert3.svg'
         <p class="mb-4 font-[dana-light]">
           انبار و فروشگاه: : تهران، جاده رباط‌کریم به شهریار، پلاک ۱۱۱
         </p>
-        <p class="mb-4 font-[dana-light]">admin@mail.com</p>
+        <p class="mb-4 font-[dana-light]">info@zazakala.com</p>
       </div>
       <div class="col-span-4 lg:col-span-3 flex justify-center">
         <div class="flex flex-col justify-start">

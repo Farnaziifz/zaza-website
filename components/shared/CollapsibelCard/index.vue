@@ -16,7 +16,7 @@ const toggleCollapse = () => {
       @click="toggleCollapse"
     >
       <p>{{ props.title }}</p>
-      <p>icon</p>
+      <Icon name="mdi:chevron-double-down" />
     </div>
     <transition name="fade">
       <div v-if="!isCollapsed" class="p-2">

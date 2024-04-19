@@ -3,6 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
   modules: ['nuxt-swiper', 'nuxt-icon'],
+  // 'nuxt-mapbox'
   swiper: {
     prefix: 'Swiper',
     styleLang: 'css',

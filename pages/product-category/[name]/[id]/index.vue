@@ -29,11 +29,19 @@ const productLisData: Ref<productList> = ref({
 onBeforeMount(async () => {
   productLisData.value = await getProductList([+route.query.id], 1)
 })
+
+const submitFilters = (val) => {
+  console.log('parent', val)
+}
 </script>
 
 <template>
   <div class="container px-2 lg: px-0">
-    <FilterBox :is-show="isShowFilter" @closeBox="closeBox" />
+    <FilterBox
+      :is-show="isShowFilter"
+      @closeBox="closeBox"
+      @sendFilter="submitFilters"
+    />
     <div class="my-4 mt-[100px] lg:mt-1">
       <span class="font-sm text-text-gray">خانه</span
       ><span class="mx-2 text-text-gray">></span
@@ -120,7 +128,7 @@ onBeforeMount(async () => {
           @click="openFilterBox"
         >
           <p>اعمال فیلتر</p>
-          <p>icon</p>
+          <Icon name="material-symbols:filter-alt-outline-sharp" />
         </div>
       </div>
       <div class="lg:col-span-3 col-span-1 w-full">
