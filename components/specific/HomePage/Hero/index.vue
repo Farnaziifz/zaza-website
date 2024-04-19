@@ -88,6 +88,7 @@ const submitSearch = () => {
                   title="انتخاب دسته‌بندی دوم"
                   :options="subCat"
                   @optionSelected="subSelected"
+                  v-if="catMainValue.label"
                 />
                 <button
                   class="focus:outline-none bg-primary rounded px-4 py-3"
