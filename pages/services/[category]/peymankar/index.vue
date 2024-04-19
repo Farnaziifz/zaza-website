@@ -38,12 +38,11 @@ onBeforeMount(async () => {
           </p>
         </div>
         <div class="lg:col-span-8">
-          <PeymankarCard />
-          <PeymankarCard />
-          <PeymankarCard />
-          <PeymankarCard />
-          <PeymankarCard />
-          <PeymankarCard />
+          <PeymankarCard
+            v-for="item in concListData.results"
+            :key="item.id"
+            :data="item"
+          />
         </div>
       </div>
     </div>

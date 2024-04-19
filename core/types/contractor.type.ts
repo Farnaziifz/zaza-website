@@ -1,18 +1,17 @@
 export type contractorItem = {
   id: number
+  aggregate_rate: number
   created_at: string
   updated_at: string
-  title_main: string
-  short_description_main: string
-  description_main: string
-  thumbnail_main: string
-  title_blog: string
-  title_service: string
-  title_product: string
-  is_special: boolean
-  seo_slug: string
-  seo_title: string
-  seo_description: string
+  father_name: string
+  birth_place: string
+  bio: string
+  user: {
+    id: number
+    first_name: string
+    last_name: string
+    avatar?: string
+  }
 }
 
 export type contactorList = {
