@@ -23,7 +23,7 @@ const props = defineProps<categoryCardType>()
             :key="item.id"
           >
             <NuxtLink
-              :to="`/product-category/${props.category.seo_slug}/${item.seo_slug}`"
+              :to="`/product-category/${props.category.seo_slug}/${item.seo_slug}?id=${item.id}`"
             >
               {{ item.title_product }}
             </NuxtLink>
@@ -32,7 +32,7 @@ const props = defineProps<categoryCardType>()
 
         <div>
           <NuxtLink
-            :to="`/product-category/${props.category.seo_slug}`"
+            :to="`/product-category/${props.category.seo_slug}?id=${props.category.id}`"
             class="flex items-center"
           >
             <p class="font-[dana-medium] text-md ml-2">خرید کن</p>

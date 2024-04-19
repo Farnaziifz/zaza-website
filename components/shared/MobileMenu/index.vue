@@ -20,8 +20,10 @@ const currentRouteName = useRoute().name
         <p class="mt-1 text-xs">جستجو کالا</p>
       </div>
       <div class="text-center">
-        <Icon name="mdi-light:format-align-justify" size="24px" />
-        <p class="mt-1 text-xs">دسته بندی کالاها</p>
+        <NuxtLink to="/product-category">
+          <Icon name="mdi-light:format-align-justify" size="24px" />
+          <p class="mt-1 text-xs">دسته بندی کالاها</p>
+        </NuxtLink>
       </div>
       <div class="text-center">
         <NuxtLink to="/services">

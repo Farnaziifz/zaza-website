@@ -1,8 +1,5 @@
 import { api } from '@/resources/service/index'
-import {
-  type contractorItem,
-  type contactorList,
-} from '@/core/types/contractor.type'
+import { type contactorList } from '@/core/types/contractor.type'
 
 const pageUrl = 'contractor'
 type response = {
@@ -11,6 +8,7 @@ type response = {
 
 const contarctorListGet = async (): Promise<response> => {
   const res = await api.get(`${pageUrl}/contractor/`)
+  console.log(res)
   return res.data
 }
 
