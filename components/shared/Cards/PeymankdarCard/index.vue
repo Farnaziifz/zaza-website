@@ -18,18 +18,19 @@ const props = defineProps<concProps>()
   >
     <div class="flex">
       <div class="w-[120px]">
-        <img :src="props.data.user.avatar" alt="" />
+        <img :src="props.data?.user?.avatar" alt="" />
       </div>
       <div class="mr-4">
         <p class="font-[dana-demi] lg:text-[24px] text-[18px] mb-3">
-          {{ props.data.user.first_name }}
+          {{ props.data?.user?.first_name }}
         </p>
         <p class="text-[#686868] font-[dana-demi] lg:text-md text-[16px] mb-3">
-          {{ props.data.user.first_name }}
+          <span v-for="item in props.data?.tag">{{ item.title }}</span
+          >,
         </p>
         <p class="flex text-primary items-center">
           <span class="text-xs ml-1"
-            >امتیاز {{ props.data.aggregate_rate }}/۱۰</span
+            >امتیاز {{ props.data?.aggregate_rate }}/5</span
           >
           <img :src="starIcon" alt="" class="w-[16px]" />
         </p>
@@ -37,10 +38,12 @@ const props = defineProps<concProps>()
     </div>
     <div class="mt-4 flex w-full justify-between items-center">
       <div class="flex">
-        <div class="bg-[#D9D9D9] rounded-[40%] p-2 text-xs">تهران</div>
+        <div class="bg-[#D9D9D9] rounded-[40%] p-2 text-xs" v-if="props.data?.work_place">
+          {{ props.data?.work_place }}
+        </div>
       </div>
       <NuxtLink
-        :to="`/services/${route.params.category}/peymankar/${props.data.id}`"
+        :to="`/services/${route.params.category}/peymankar/${props.data?.id}`"
       >
         <p class="flex text-primary items-center">
           <span>مشاهده پروفایل</span>

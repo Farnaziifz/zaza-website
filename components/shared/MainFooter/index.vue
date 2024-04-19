@@ -2,7 +2,7 @@
 import Logo from '@/assets/images/logo.svg'
 import cert1 from '@/assets/images/cert1.png'
 import cert2 from '@/assets/images/cert2.png'
-import cert3 from '@/assets/images/cert3.svg'
+import cert3 from '@/assets/images/cert3.png'
 </script>
 
 <template>

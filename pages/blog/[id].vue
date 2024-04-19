@@ -65,7 +65,7 @@ onBeforeMount(async () => {
 
       <div class="w-px h-6 bg-sec-gray mx-2"></div>
       <p class="mr-2 text-sm text-text-gray">
-        تاریخ {{ getPersianYear(blogData.updated_at) }}
+        تاریخ {{ blogData.persian_created_at }}
       </p>
     </div>
     <div class="w-full h-img mt-4">

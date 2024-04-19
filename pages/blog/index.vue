@@ -86,7 +86,7 @@ const pageChange = async (page: number | string) => {
         <BlogCard
           :img="blog.thumbnail"
           :title="blog.title"
-          :date="blog.updated_at"
+          :date="blog.persian_created_at"
           :id="blog.id"
           v-for="blog in blogData.results"
           :key="blog.id"

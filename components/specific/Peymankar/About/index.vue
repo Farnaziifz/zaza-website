@@ -3,6 +3,7 @@ type aboutProps = {
   fistname: string
   lastname: string
   about: string
+  tag: []
 }
 
 const props = defineProps<aboutProps>()
@@ -17,17 +18,10 @@ const props = defineProps<aboutProps>()
       {{ props.about }}
     </p>
     <div class="mt-10">
-      <span class="bg-primary px-5 py-2 rounded bg-[#FBDAA8] ml-2 text-sm"
-        >تخخخصص ۱</span
-      >
-      <span class="bg-primary px-5 py-2 rounded bg-[#FBDAA8] ml-2 text-sm"
-        >تخخخصص ۱</span
-      >
-      <span class="bg-primary px-5 py-2 rounded bg-[#FBDAA8] ml-2 text-sm"
-        >تخخخصص ۱</span
-      >
-      <span class="bg-primary px-5 py-2 rounded bg-[#FBDAA8] ml-2 text-sm"
-        >تخخخصص ۱</span
+      <span
+        class="bg-primary px-5 py-2 rounded bg-[#FBDAA8] ml-2 text-sm"
+        v-for="item in props.tag"
+        >{{ item.title }} ۱</span
       >
     </div>
   </div>

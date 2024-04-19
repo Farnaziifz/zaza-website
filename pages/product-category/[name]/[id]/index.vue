@@ -7,6 +7,8 @@ import FilterBox from '@/components/specific/ProductCategory/FilterBox/index.vue
 import { getProductList } from '@/logics/specifics/product.handler'
 import { type productList } from '~/core/types/product.type'
 import { useRoute } from 'vue-router'
+import { getConcList } from '~/logics/specifics/contractor.handler'
+import { type contactorList } from '@/core/types/contractor.type'
 
 const route = useRoute()
 const isShowFilter = ref(false)
@@ -26,8 +28,18 @@ const productLisData: Ref<productList> = ref({
   results: [],
 })
 
+const concListData: Ref<contactorList> = ref({
+  count: 0,
+  total_pages: 0,
+  next: false,
+  previous: false,
+  current_page: 0,
+  results: [],
+})
+
 onBeforeMount(async () => {
   productLisData.value = await getProductList([+route.query.id], 1)
+  concListData.value = await getConcList(route.query.id)
 })
 
 const submitFilters = (val) => {
@@ -68,13 +80,18 @@ const submitFilters = (val) => {
             }"
             class="w-full mt-5"
           >
-            <SwiperSlide v-for="slide in 10" :key="slide">
-              <div>
-                <img :src="temp7" alt="" />
-              </div>
-              <div class="mt-4">
-                <img :src="temp7" alt="" />
-              </div>
+            <SwiperSlide v-for="slide in concListData.results" :key="slide">
+              <NuxtLink
+                :to="`/services/${route.params.name}/peymankar/${slide.id}`"
+              >
+                <div>
+                  <img
+                    :src="slide.user.avatar"
+                    alt=""
+                    class="rounded-[50%] object-contain"
+                  />
+                </div>
+              </NuxtLink>
             </SwiperSlide>
           </Swiper>
           <div class="text-center">

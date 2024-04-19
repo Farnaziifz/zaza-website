@@ -42,13 +42,14 @@ onBeforeMount(async () => {
               {{ concData.user.first_name }} {{ concData.user.last_name }}
             </p>
             <p class="text-[#686868] font-[dana-demi] text-md">
-              نقاش، بتونه کاری، رفع ترک
+              <span v-for="item in concData.tag">{{ item.title }}</span
+              >,
             </p>
           </div>
           <div>
             <p class="flex text-primary items-center">
               <span class="text-xs ml-1"
-                >امتیاز {{ concData.aggregate_rate }}/۱۰</span
+                >امتیاز {{ concData.aggregate_rate }}/5</span
               >
               <img :src="starIcon" alt="" class="w-[16px]" />
             </p>
@@ -62,11 +63,11 @@ onBeforeMount(async () => {
           <a href="#about" class="decoration-none font-[dana-demi] text-md ml-4"
             >درباره</a
           >
-          <a href="album" class="decoration-none font-[dana-demi] text-md ml-4"
+          <a href="#album" class="decoration-none font-[dana-demi] text-md ml-4"
             >آلبوم تصاویر</a
           >
           <a
-            href="comment"
+            href="#comment"
             class="decoration-none font-[dana-demi] text-md ml-4"
             >بازخورد همکاری‌ها</a
           >
@@ -83,6 +84,7 @@ onBeforeMount(async () => {
         :fistname="concData.user.first_name"
         :lastname="concData.user.last_name"
         :about="concData.bio"
+        :tag="concData.tag"
       />
       <Album
         class="mt-14"

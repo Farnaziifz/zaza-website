@@ -17,7 +17,7 @@ const props = defineProps<blogProps>()
       <BlogCard
         :img="item.thumbnail"
         :title="item.title"
-        :date="item.created_at"
+        :date="item.persian_created_at"
         :id="item.id"
         v-for="item in blog"
         :key="item.id"

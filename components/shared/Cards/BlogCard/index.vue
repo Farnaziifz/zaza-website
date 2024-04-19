@@ -23,8 +23,7 @@ const props = defineProps<BlogProps>()
         <div class="flex items-center">
           <Icon name="solar:calendar-outline" size="20px" />
           <p class="mr-2 text-sm text-text-gray">
-            <!-- {{ convertDateArrayToDateString(props.date) }} -->
-            {{ getPersianYear(props.date, 'YYYY/MM/DD') }}
+            {{ props.date }}
           </p>
         </div>
 

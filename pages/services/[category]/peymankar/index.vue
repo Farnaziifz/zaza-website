@@ -4,7 +4,6 @@ import man5 from '@/assets/images/man/man-5.png'
 import PeymankarCard from '@/components/shared/Cards/PeymankdarCard/index.vue'
 import { getConcList } from '@/logics/specifics/contractor.handler'
 import {
-  type contractorItem,
   type contactorList,
 } from '@/core/types/contractor.type'
 
