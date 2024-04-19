@@ -1,3 +1,8 @@
+type gallery = {
+  created_at: string
+  file: string
+}
+
 export type contractorItem = {
   id: number
   aggregate_rate: number
@@ -6,6 +11,7 @@ export type contractorItem = {
   father_name: string
   birth_place: string
   bio: string
+  gallery: gallery[]
   user: {
     id: number
     first_name: string

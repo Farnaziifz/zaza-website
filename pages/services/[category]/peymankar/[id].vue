@@ -1,9 +1,31 @@
 <script setup lang="ts">
-import temp11 from '@/assets/images/temp/11.png'
 import starIcon from '@/assets/images/icons/Star.png'
 import About from '@/components/specific/Peymankar/About/index.vue'
 import Album from '@/components/specific/Peymankar/Album/index.vue'
 import Comments from '@/components/specific/Peymankar/Comments/index.vue'
+import { type contractorItem } from '~/core/types/contractor.type'
+import { useRoute } from 'vue-router'
+import { getConcData } from '@/logics/specifics/contractor.handler'
+const route = useRoute()
+const concData: Ref<contractorItem> = ref({
+  id: 0,
+  aggregate_rate: 0,
+  created_at: '',
+  updated_at: '',
+  father_name: '',
+  birth_place: '',
+  bio: '',
+  user: {
+    id: 0,
+    first_name: '',
+    last_name: '',
+    avatar: '',
+  },
+})
+
+onBeforeMount(async () => {
+  concData.value = await getConcData(route.params.id)
+})
 </script>
 
 <template>
@@ -11,17 +33,23 @@ import Comments from '@/components/specific/Peymankar/Comments/index.vue'
     <div class="page-shadow"></div>
     <div class="container mt-14">
       <div class="flex">
-        <div><img :src="temp11" alt="" class="w-[200px] rounded" /></div>
+        <div>
+          <img :src="concData.user.avatar" alt="" class="w-[200px] rounded" />
+        </div>
         <div class="flex flex-col justify-between pr-4">
           <div>
-            <p class="text-[24px] font-[dana-demi] mb-4">محمد خسروانی</p>
+            <p class="text-[24px] font-[dana-demi] mb-4">
+              {{ concData.user.first_name }} {{ concData.user.last_name }}
+            </p>
             <p class="text-[#686868] font-[dana-demi] text-md">
               نقاش، بتونه کاری، رفع ترک
             </p>
           </div>
           <div>
             <p class="flex text-primary items-center">
-              <span class="text-xs ml-1">امتیاز ۴/۱۰</span>
+              <span class="text-xs ml-1"
+                >امتیاز {{ concData.aggregate_rate }}/۱۰</span
+              >
               <img :src="starIcon" alt="" class="w-[16px]" />
             </p>
           </div>
@@ -49,8 +77,20 @@ import Comments from '@/components/specific/Peymankar/Comments/index.vue'
           </button>
         </div>
       </div>
-      <About class="mt-14" id="about" />
-      <Album class="mt-14" id="album" />
+      <About
+        class="mt-14"
+        id="about"
+        :fistname="concData.user.first_name"
+        :lastname="concData.user.last_name"
+        :about="concData.bio"
+      />
+      <Album
+        class="mt-14"
+        id="album"
+        :fistname="concData.user.first_name"
+        :lastname="concData.user.last_name"
+        :gallery="concData.gallery"
+      />
       <Comments class="mt-14" id="comment" />
     </div>
   </div>

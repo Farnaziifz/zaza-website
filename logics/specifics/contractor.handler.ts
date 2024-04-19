@@ -13,7 +13,7 @@ export const getConcList = async (): Promise<contactorList> => {
   return concList
 }
 
-export const getBlogData = async (id: string | number): Promise<blogItem> => {
-  const res = await api.getBlogData(id)
+export const getConcData = async (id: string | number): Promise<contractorItem> => {
+  const res = await api.getConcData(id)
   return res
 }

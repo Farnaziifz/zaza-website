@@ -1,13 +1,20 @@
+<script setup lang="ts">
+type aboutProps = {
+  fistname: string
+  lastname: string
+  about: string
+}
+
+const props = defineProps<aboutProps>()
+</script>
+
 <template>
-  <div class="p-4 py-8 bg-white rounded my-shadow">
-    <p class="font-[dana-demi] text-lg mb-10">درباره محمد خسروانی</p>
+  <div class="p-4 py-8 bg-white rounded my-shadow" v-if="props.about">
+    <p class="font-[dana-demi] text-lg mb-10">
+      درباره {{ props.fistname }} {{ props.lastname }}
+    </p>
     <p class="text-justify">
-      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از
-      طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان
-      که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف
-      بهبود ابزارهای کاربردی می باشد. کتابهای رسد وزمان مورد نیاز شامل حروفچینی
-      دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد
-      استفاده قرار گیرد.
+      {{ props.about }}
     </p>
     <div class="mt-10">
       <span class="bg-primary px-5 py-2 rounded bg-[#FBDAA8] ml-2 text-sm"
