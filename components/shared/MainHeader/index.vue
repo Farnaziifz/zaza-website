@@ -92,13 +92,13 @@ onBeforeMount(async () => {
             />
             دسته بندی کالا
           </button>
-          <NuxtLink :to="`/product?type=best`">
+          <NuxtLink :to="`/product?type=best&page=1`">
             <div class="mr-2 hidden lg:block">
               <Icon name="mdi-light:diamond" size="20px" color="black" />
               <span class="mr-1 font-[dana-light]">پر فروش‌ترین‌ها</span>
             </div>
           </NuxtLink>
-          <NuxtLink :to="`/product?type=sales`">
+          <NuxtLink :to="`/product?type=sales&page=1`">
             <div class="mr-2 hidden lg:block">
               <Icon name="streamline:discount-percent-coupon" color="black" />
               <span class="mr-1 font-[dana-light]">تخفیف‌ها</span>

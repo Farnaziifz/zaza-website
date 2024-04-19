@@ -5,9 +5,11 @@ import CollapsibleCard from '@/components/shared/CollapsibelCard/index.vue'
 import FilterBox from '@/components/specific/ProductCategory/FilterBox/index.vue'
 import { getProductList } from '@/logics/specifics/product.handler'
 import { type productList } from '~/core/types/product.type'
-import { useRoute } from 'vue-router'
+import Pagination from '@/components/shared/pagination/index.vue'
+import { useRoute, useRouter } from 'vue-router'
 
 const route = useRoute()
+const router = useRouter()
 const isShowFilter = ref(false)
 
 const openFilterBox = () => {
@@ -48,6 +50,20 @@ watch(
 )
 const submitFilters = (val) => {
   console.log('parent', val)
+}
+
+const pageChange = async (page: number | string) => {
+  router.push({
+    path: '/product',
+    query: { page: page, type: route.query.type },
+  })
+  productLisData.value = await getProductList(
+    [],
+    1,
+    null,
+    route.query.type === 'sales' ? true : false,
+    route.query.type === 'best' ? true : false
+  )
 }
 </script>
 
@@ -121,6 +137,19 @@ const submitFilters = (val) => {
               :productData="item"
             />
           </template>
+        </div>
+        <div
+          v-if="productLisData.count"
+          class="mt-4 flex justify-center w-full"
+        >
+          <Pagination
+            :count="productLisData.count"
+            :total_pages="productLisData.total_pages"
+            :next="productLisData.next"
+            :previous="productLisData.previous"
+            :current_page="productLisData.current_page"
+            @pageChange="pageChange"
+          />
         </div>
       </div>
     </div>
