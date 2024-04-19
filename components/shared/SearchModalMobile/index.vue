@@ -2,6 +2,7 @@
 import DropDown from '@/components/shared/DropDown/index.vue'
 import { type categoryType } from '@/core/types/category.type'
 import { useRouter } from 'vue-router'
+
 const router = useRouter()
 type modalProps = {
   isOpen: boolean

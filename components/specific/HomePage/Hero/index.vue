@@ -2,6 +2,9 @@
 import man1 from '@/assets/images/man/man-1.png'
 import DropDown from '@/components/shared/DropDown/index.vue'
 import { type categoryType } from '@/core/types/category.type'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
 
 type cat = {
   id: number
@@ -17,6 +20,14 @@ const props = defineProps<HeroProps>()
 const categoryMain: Ref<cat[]> = ref([])
 const subCat: Ref<cat[]> = ref([])
 
+const catMainValue: Ref<cat> = ref({
+  id: 0,
+  label: '',
+})
+const catSubValue: Ref<cat> = ref({
+  id: 0,
+  label: '',
+})
 onBeforeMount(async () => {
   props.category.forEach((el) => {
     if (el.children?.length) {
@@ -31,6 +42,16 @@ const optionMainSelected = (val: cat) => {
   temp[0].children.forEach((el) => {
     subCat.value.push({ id: +el.id, label: el.title_product })
   })
+  catMainValue.value = val
+}
+const subSelected = (val: cat) => {
+  catSubValue.value = val
+}
+
+const submitSearch = () => {
+  router.push(
+    `/product-category/${catMainValue.value.label}/${catSubValue.value.label}?id=${catSubValue.value.id}`
+  )
 }
 </script>
 
@@ -63,8 +84,15 @@ const optionMainSelected = (val: cat) => {
                   :options="categoryMain"
                   @optionSelected="optionMainSelected"
                 />
-                <DropDown title="انتخاب دسته‌بندی دوم" :options="subCat" />
-                <button class="focus:outline-none bg-primary rounded px-4 py-3">
+                <DropDown
+                  title="انتخاب دسته‌بندی دوم"
+                  :options="subCat"
+                  @optionSelected="subSelected"
+                />
+                <button
+                  class="focus:outline-none bg-primary rounded px-4 py-3"
+                  @click="submitSearch"
+                >
                   انتخاب
                 </button>
               </div>
