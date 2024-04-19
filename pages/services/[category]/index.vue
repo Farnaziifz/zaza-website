@@ -4,9 +4,10 @@ import ServicesCategory from '@/components/specific/ServicesPage/ServicesCategor
 import ExerciseIcon from '@/assets/images/icons/Exercise.png'
 import WorkerIcon from '@/assets/images/icons/Worker.png'
 import ModalComponent from '@/components/shared/Modal/index.vue'
-
+import { useRoute } from 'vue-router'
+const route = useRoute()
 const isModalOpen = ref(false)
-
+console.log(route)
 const openModal = () => {
   isModalOpen.value = true
 }
@@ -22,7 +23,7 @@ const datePicker = computed(() => {
     <div>
       <ServicesCategory />
       <div
-        class="container grid lg:grid-cols-2 lg:gap-4 grid-cols-1 gap-y-4 px-4 lg:px-0 "
+        class="container grid lg:grid-cols-2 lg:gap-4 grid-cols-1 gap-y-4 px-4 lg:px-0"
       >
         <div
           class="border rounded border-primary bg-white p-10 flex flex-col items-center justify-center"
@@ -55,18 +56,24 @@ const datePicker = computed(() => {
             خود را ارسال کنید. پس از بررسی، متخصص ما قیمت و زمان پیشنهادی خود را
             برای شما ارسال میکند و شما پرداخت میکنید
           </p>
-          <button
-            class="bg-white border border-primary rounded text-primary w-full py-4 mt-10 focus:outline-none"
+          <NuxtLink
+            :to="`/services/${route.params.category}/peymankar?id=${route.query.id}`"
           >
-            مشاهده متخصصین
-          </button>
+            <button
+              class="bg-white border border-primary rounded text-primary w-full py-4 mt-10 focus:outline-none px-3"
+            >
+              مشاهده متخصصین
+            </button>
+          </NuxtLink>
         </div>
       </div>
     </div>
     <ModalComponent :isOpen="isModalOpen" @update:isOpen="isModalOpen = $event">
       <p class="text-[22px] font-[dana-bold] mb-5">ارسال درخواست فوری</p>
       <p class="text-lg font-[dana-regular] mb-4">مشتری گرامی</p>
-      <p class="lg:text-lg text-sm font-[dana-regular] lg:font-[dana-regular] mb-4 text-justify">
+      <p
+        class="lg:text-lg text-sm font-[dana-regular] lg:font-[dana-regular] mb-4 text-justify"
+      >
         لطفا در خواست خود را به صورت کامل و با حداکثر جزییات در باکس زیر
         بنویسید. توضیحات شما می‌تواند به همکاران و پیمانکاران ما در تخمین زمان و
         قیمت کمک بیشتری بکند. همچنین شما میتوانید زمان مناسب برای خود را انتخاب

@@ -2,6 +2,24 @@
 import ServicesCategory from '@/components/specific/ServicesPage/ServicesCategory/index.vue'
 import man5 from '@/assets/images/man/man-5.png'
 import PeymankarCard from '@/components/shared/Cards/PeymankdarCard/index.vue'
+import { getConcList } from '@/logics/specifics/contractor.handler'
+import {
+  type contractorItem,
+  type contactorList,
+} from '@/core/types/contractor.type'
+
+const concListData: Ref<contactorList> = ref({
+  count: 0,
+  total_pages: 0,
+  next: false,
+  previous: false,
+  current_page: 0,
+  results: [],
+})
+
+onBeforeMount(async () => {
+  concListData.value = await getConcList()
+})
 </script>
 <template>
   <div class="main-page pt-14">
