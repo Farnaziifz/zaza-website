@@ -7,6 +7,8 @@ import WonderBox from '@/components/shared/WonderBox/index.vue'
 import { type categoryType } from '~/core/types/category.type'
 import { getCategoryDetails } from '~/logics/specifics/category.handler'
 import { useRoute } from 'vue-router'
+import { getProductList } from '@/logics/specifics/product.handler'
+import { type productList } from '~/core/types/product.type'
 
 const route = useRoute()
 const categoryDetails: Ref<categoryType> = ref({
@@ -28,7 +30,17 @@ const categoryDetails: Ref<categoryType> = ref({
   children: [],
 })
 
+const productLisData: Ref<productList> = ref({
+  count: 0,
+  total_pages: 0,
+  next: '',
+  previous: '',
+  current_page: 0,
+  results: [],
+})
+
 onBeforeMount(async () => {
+  productLisData.value = await getProductList([route.query.id], 1, null, true)
   categoryDetails.value = await getCategoryDetails(route.query?.id)
 })
 </script>
@@ -45,7 +57,7 @@ onBeforeMount(async () => {
     <div class="rounded p-2 px-4 md:px-0">
       <BannerLVL1 class="h-full" :bannerData="categoryDetails.banner_main" />
     </div>
-    <WonderBox class="mt-14" />
+    <WonderBox class="mt-14" :data="productLisData.results" />
     <Contractor />
   </div>
   <div>

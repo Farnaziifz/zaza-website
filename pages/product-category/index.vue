@@ -15,7 +15,6 @@ onBeforeMount(async () => {
   categoryData.value = await getCategoryList()
 })
 
-console.log(categoryData.value)
 </script>
 
 <template>

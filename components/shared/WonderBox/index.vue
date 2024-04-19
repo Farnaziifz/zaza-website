@@ -1,5 +1,10 @@
 <script lang="ts" setup>
 import ProductCard from '@/components/shared/Cards/ProductCard/index.vue'
+import { type productItem } from '~/core/types/product.type'
+type wonderProps = {
+  data: productItem[]
+}
+const props = defineProps<wonderProps>()
 </script>
 
 <template>
@@ -35,8 +40,8 @@ import ProductCard from '@/components/shared/Cards/ProductCard/index.vue'
           }"
           class="w-full"
         >
-          <SwiperSlide v-for="slide in 10" :key="slide">
-            <ProductCard class="mx-1" :has-discount="true" />
+          <SwiperSlide v-for="slide in props.data" :key="slide">
+            <ProductCard class="mx-1" :productData="slide" />
           </SwiperSlide>
         </Swiper>
       </div>
@@ -56,8 +61,8 @@ import ProductCard from '@/components/shared/Cards/ProductCard/index.vue'
           }"
           class="w-full"
         >
-          <SwiperSlide v-for="slide in 10" :key="slide">
-            <ProductCard class="mx-1" :has-discount="true" />
+          <SwiperSlide v-for="slide in props.data" :key="slide">
+            <ProductCard class="mx-1" :productData="slide" />
           </SwiperSlide>
         </Swiper>
       </div>

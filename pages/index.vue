@@ -56,36 +56,10 @@ const brandData: Ref<brandList> = ref({
   current_page: 1,
   results: [],
 })
-const productData: Ref<productList> = ref({
-  id: 0,
-  aggregate_rate: 0,
-  created_at: '',
-  updated_at: '',
-  title: '',
-  short_description: '',
-  description: '',
-  thumbnail: '',
-  length: 0,
-  width: 0,
-  height: 0,
-  weight: 0,
-  is_special: false,
-  is_bestselling: false,
-  seo_slug: '',
-  seo_title: '',
-  seo_description: '',
-  creator: {},
-  brand: [],
-  price: [],
-  category: [],
-  tag: [],
-  gallery: [],
-  property: [],
-})
+
 
 onBeforeMount(async () => {
   categoryData.value = await getCategoryList()
-  productData.value = await getProductList([], 1)
   blogData.value = await getBlogList([], 1)
   brandData.value = await getBrandList()
   promotedProduct.value = await getPromoteProduct()

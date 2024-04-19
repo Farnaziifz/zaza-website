@@ -30,7 +30,8 @@ const brandItemGet = async (id: string | number): Promise<productItem> => {
 const productList = async (
   category: number[],
   page: number | string,
-  brand: string | number
+  brand: string | number,
+  is_bestselling: boolean
 ): Promise<ProductList> => {
   let queryString = ''
   category?.forEach((number, index) => {
@@ -40,10 +41,9 @@ const productList = async (
       queryString += '&'
     }
   })
-
-  const res = await api.get(
-    `${pageUrl}/product/?page=${page}&${queryString}&brand=${brand}`
-  )
+  if (brand) queryString += `&brand=${brand}`
+  if (is_bestselling) queryString += `&is_bestselling=${is_bestselling}`
+  const res = await api.get(`${pageUrl}/product/?page=${page}&${queryString}`)
   return res.data
 }
 const productData = async (id: number | string): Promise<productItem> => {

@@ -22,9 +22,10 @@ export const brandItemGet = async (id: string | number): Promis<brandItem> => {
 export const getProductList = async (
   category: number[],
   page: number | string,
-  brand: string | number 
+  brand: string | number,
+  is_bestselling: boolean
 ): Promise<productItem> => {
-  const res = await api.getProductList(category, page, brand)
+  const res = await api.getProductList(category, page, brand, is_bestselling)
   return res
 }
 
