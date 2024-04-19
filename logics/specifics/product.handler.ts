@@ -23,9 +23,16 @@ export const getProductList = async (
   category: number[],
   page: number | string,
   brand: string | number,
+  on_sale: boolean,
   is_bestselling: boolean
 ): Promise<productItem> => {
-  const res = await api.getProductList(category, page, brand, is_bestselling)
+  const res = await api.getProductList(
+    category,
+    page,
+    brand,
+    on_sale,
+    is_bestselling
+  )
   return res
 }
 
