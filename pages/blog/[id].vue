@@ -39,7 +39,7 @@ const blogListData: Ref<blogList> = ref({
 })
 onBeforeMount(async () => {
   blogData.value = await getBlogData(route.query.id)
-  blogListData.value = await getBlogList([], 1)
+  blogListData.value = await getBlogList([blogData.value.category[0].id], 1)
 })
 </script>
 
@@ -63,7 +63,7 @@ onBeforeMount(async () => {
 
       <div class="w-px h-6 bg-sec-gray mx-2"></div>
       <p class="mr-2 text-sm text-text-gray">
-         {{ blogData.persian_created_at }}
+        {{ blogData.persian_created_at }}
       </p>
     </div>
     <div class="w-full h-img mt-4">

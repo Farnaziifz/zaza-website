@@ -1,16 +1,18 @@
 <script setup lang="ts">
 import { ref, onBeforeMount } from 'vue'
 import ProductCard from '@/components/shared/Cards/ProductCard/index.vue'
-import temp7 from '@/assets/images/temp/7.png'
 import CollapsibleCard from '@/components/shared/CollapsibelCard/index.vue'
 import FilterBox from '@/components/specific/ProductCategory/FilterBox/index.vue'
 import { getProductList } from '@/logics/specifics/product.handler'
 import { type productList } from '~/core/types/product.type'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { getConcList } from '~/logics/specifics/contractor.handler'
 import { type contactorList } from '@/core/types/contractor.type'
+import starIcon from '@/assets/images/icons/Star.png'
+import Pagination from '@/components/shared/pagination/index.vue'
 
 const route = useRoute()
+const router = useRouter()
 const isShowFilter = ref(false)
 
 const openFilterBox = () => {
@@ -44,6 +46,13 @@ onBeforeMount(async () => {
 
 const submitFilters = (val) => {
   console.log('parent', val)
+}
+const pageChange = async (page: number | string) => {
+  router.push({
+    path: `/product-category/${route.params.name}/${route.params.id}`,
+    query: { page: page, id: route.query.id },
+  })
+  productLisData.value = await getProductList([+route.query.id], page)
 }
 </script>
 
@@ -84,12 +93,30 @@ const submitFilters = (val) => {
               <NuxtLink
                 :to="`/services/${route.params.name}/peymankar/${slide.id}`"
               >
-                <div>
+                <div
+                  class="relative w-[150px] h-[150px] lg:w-[100px] lg:h-[100px] rounded-[50%]"
+                >
                   <img
                     :src="slide.user.avatar"
                     alt=""
-                    class="rounded-[50%] object-contain"
+                    class="rounded-[50%] object-contain w-[150px] h-[150px] lg:w-[100px] lg:h-[100px]"
                   />
+                  <div
+                    class="absolute w-[100%] h-[100%] flex-col top-0 left-0 bg-[#5B5B5B] rounded-[50%] flex justify-center items-center"
+                  >
+                    <p class="text-[10px] font-[dana-bold] text-white">
+                      {{ slide.user.first_name }}
+                    </p>
+                    <p class="text-[10px] font-[dana-bold] text-white">
+                      {{ slide.user.last_name }}
+                    </p>
+                    <p class="flex text-primary items-center mt-1">
+                      <span class="text-xs ml-1"
+                        >امتیاز {{ slide.aggregate_rate }}/5</span
+                      >
+                      <img :src="starIcon" alt="" class="w-[16px]" />
+                    </p>
+                  </div>
                 </div>
               </NuxtLink>
             </SwiperSlide>
@@ -99,7 +126,6 @@ const submitFilters = (val) => {
           </div>
         </div>
         <div class="border border-sec-gray rounded p-4 mt-5 hidden lg:block">
-        
           <CollapsibleCard title="فیلتر بر اساس برند محصول">
             <div
               class="flex items-center justify-between cursor-pointer px-4 mb-3"
@@ -139,6 +165,16 @@ const submitFilters = (val) => {
               :productData="item"
             />
           </template>
+        </div>
+        <div v-if="productLisData.count">
+          <Pagination
+            :count="productLisData.count"
+            :total_pages="productLisData.total_pages"
+            :next="productLisData.next"
+            :previous="productLisData.previous"
+            :current_page="productLisData.current_page"
+            @pageChange="pageChange"
+          />
         </div>
       </div>
     </div>

@@ -1,5 +1,4 @@
 <script lang="ts" setup>
-import temp5 from '@/assets/images/temp/5.png'
 import type { productItem } from '~/core/types/product.type'
 import { toPersianCurrency } from '@/logics/shared/toPersianCurrency'
 
@@ -20,7 +19,7 @@ const props = defineProps<productCardProps>()
       :class="{ 'border border-sec-gray': hasBorder }"
       v-if="props.productData"
     >
-      <img :src="temp5" alt="" class="mb-5 m-auto" />
+      <img :src="props.productData.thumbnail" alt="" class="mb-5 m-auto" />
       <p class="mb-5 text-center text-sm font-[dana-medium]">
         {{ props.productData.title }}
       </p>

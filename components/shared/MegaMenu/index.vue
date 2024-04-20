@@ -27,7 +27,7 @@ const props = defineProps<megaMenuProps>()
               </NuxtLink>
               <div :key="sub?.id" class="mt-5" v-for="sub in catItem.children">
                 <NuxtLink
-                  :to="`/product-category/${catItem.seo_slug}/${sub.seo_slug}?id=${sub.id}`"
+                  :to="`/product-category/${catItem.seo_slug}/${sub.seo_slug}?id=${sub.id}&page=1`"
                 >
                   <p class="text-sm cursor-pointer">
                     {{ sub?.title_product }}

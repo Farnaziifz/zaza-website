@@ -26,9 +26,11 @@ const props = defineProps<specProps>()
     </div>
     <div class="rounded border border-sec-gray p-4">
       <div>
-        <div class="font-[dana-bold] text-[18px]">برچسب:</div>
-        <p class="mt-10 text-sm font-[dana-light] text-justify text-text-gray">
-          <span v-for="item in props.data.tag">{{ item.title }}</span>
+        <div class="font-[dana-bold] text-[18px]" v-if="props.data.tag.length">
+          برچسب:
+        </div>
+        <p class="mt-4 text-sm font-[dana-light] text-justify text-text-gray" v-if="props.data.tag.length">
+          <span v-for="item in props.data.tag">{{ item.title }}</span> -
         </p>
       </div>
 
@@ -38,9 +40,9 @@ const props = defineProps<specProps>()
           <span v-for="item in props.data.category">{{ item.title_main }}</span>
         </p>
       </div>
-      <div class="mt-4">
+      <!-- <div class="mt-4">
         <div class="font-[dana-bold] text-18px]">اشتراک گذاری:</div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

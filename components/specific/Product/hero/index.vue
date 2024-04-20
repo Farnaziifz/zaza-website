@@ -216,7 +216,7 @@ const changeImage = (file: string) => {
           <p class="mr-2 font-[dana-demi] text-sm">ارسال سریع</p>
         </div>
       </div>
-      <div class="prices px-5">
+      <div class="prices px-5" v-if="props.productData.price.length > 1">
         <p class="mb-1">انتخاب نوع محصول</p>
         <DropDown
           :options="pricesOption"

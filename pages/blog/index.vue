@@ -46,7 +46,6 @@ const addToFilterList = (item: number | string) => {
 
 const submitFilter = async () => {
   blogData.value = await getBlogList(filterList, 1)
-  console.log(blogData.value)
   router.push({ path: '/blog', query: { page: 1 } })
 }
 const pageChange = async (page: number | string) => {
