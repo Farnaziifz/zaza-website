@@ -21,8 +21,8 @@ const props = defineProps<aboutProps>()
       <span
         class="bg-primary px-5 py-2 rounded bg-[#FBDAA8] ml-2 text-sm"
         v-for="item in props.tag"
-        >{{ item.title }} ۱</span
-      >
+        >{{ item.title }}
+      </span>
     </div>
   </div>
 </template>

@@ -99,26 +99,7 @@ const submitFilters = (val) => {
           </div>
         </div>
         <div class="border border-sec-gray rounded p-4 mt-5 hidden lg:block">
-          <CollapsibleCard title="فیلتر بر اساس کشور سازنده">
-            <div
-              class="flex items-center justify-between cursor-pointer px-4 mb-3"
-            >
-              <label for="name1">ایران</label>
-              <input type="checkbox" id="name1" class="borde-none w-4 h-4" />
-            </div>
-            <div
-              class="flex items-center justify-between cursor-pointer px-4 mb-3"
-            >
-              <label for="name2">ایران</label>
-              <input type="checkbox" id="name2" class="borde-none w-4 h-4" />
-            </div>
-            <div
-              class="flex items-center justify-between cursor-pointer px-4 mb-3"
-            >
-              <label for="name3">ایران</label>
-              <input type="checkbox" id="name3" class="borde-none w-4 h-4" />
-            </div>
-          </CollapsibleCard>
+        
           <CollapsibleCard title="فیلتر بر اساس برند محصول">
             <div
               class="flex items-center justify-between cursor-pointer px-4 mb-3"

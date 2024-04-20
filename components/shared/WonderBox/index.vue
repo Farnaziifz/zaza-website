@@ -3,6 +3,7 @@ import ProductCard from '@/components/shared/Cards/ProductCard/index.vue'
 import { type productItem } from '~/core/types/product.type'
 type wonderProps = {
   data: productItem[]
+  title: string
 }
 const props = defineProps<wonderProps>()
 </script>
@@ -18,7 +19,7 @@ const props = defineProps<wonderProps>()
         </p>
         <p class="text-sm md:text-lg font-[dana-bold] text-white">در</p>
         <p class="text-sm md:text-lg font-[dana-bold] text-white">
-          استخر و لوله کشی
+          {{ props.title }}
         </p>
         <div class="text-center">
           <div class="custom-pagination !w-auto mt-5" self-center></div>

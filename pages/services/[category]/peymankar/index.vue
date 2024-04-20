@@ -3,10 +3,10 @@ import ServicesCategory from '@/components/specific/ServicesPage/ServicesCategor
 import man5 from '@/assets/images/man/man-5.png'
 import PeymankarCard from '@/components/shared/Cards/PeymankdarCard/index.vue'
 import { getConcList } from '@/logics/specifics/contractor.handler'
-import {
-  type contactorList,
-} from '@/core/types/contractor.type'
+import { type contactorList } from '@/core/types/contractor.type'
+import { useRoute } from 'vue-router'
 
+const route = useRoute()
 const concListData: Ref<contactorList> = ref({
   count: 0,
   total_pages: 0,
@@ -17,7 +17,7 @@ const concListData: Ref<contactorList> = ref({
 })
 
 onBeforeMount(async () => {
-  concListData.value = await getConcList()
+  concListData.value = await getConcList(route.query.id)
 })
 </script>
 <template>

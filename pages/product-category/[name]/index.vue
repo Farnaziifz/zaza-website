@@ -57,7 +57,7 @@ onBeforeMount(async () => {
     <div class="rounded p-2 px-4 md:px-0">
       <BannerLVL1 class="h-full" :bannerData="categoryDetails.banner_main" />
     </div>
-    <WonderBox class="mt-14" :data="productLisData.results" />
+    <WonderBox class="mt-14" :data="productLisData.results" :title="route.params.name" />
     <Contractor />
   </div>
   <div>

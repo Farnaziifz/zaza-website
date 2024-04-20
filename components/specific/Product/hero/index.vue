@@ -6,7 +6,8 @@ import man4 from '@/assets/images/man/man-4.png'
 import type { productItem } from '~/core/types/product.type'
 import { toPersianCurrency } from '~/logics/shared/toPersianCurrency'
 import DropDown from '@/components/shared/DropDown/index.vue'
-
+import { useRoute } from 'vue-router'
+const route = useRoute()
 type productProps = {
   productData: productItem
 }
@@ -86,7 +87,7 @@ const changeImage = (file: string) => {
               ارتفاع: {{ props.productData.height }}متر
             </p>
             <p class="font-[dana-demi] mb-2">
-              عرض:{{ props.productData.height }}متر
+              عرض:{{ props.productData.width }}متر
             </p>
             <p class="font-[dana-demi] mb-2">
               وزن: {{ props.productData.weight }} کیلوگرم
@@ -95,7 +96,7 @@ const changeImage = (file: string) => {
               طول:{{ props.productData.length }}متر
             </p>
           </div>
-          <div class="prices">
+          <div class="prices" v-if="props.productData.price.length > 1">
             <p class="mb-1">انتخاب نوع محصول</p>
             <DropDown
               :options="pricesOption"
@@ -109,7 +110,9 @@ const changeImage = (file: string) => {
               <p class="text-md font-[dana-demi] mb-2">
                 برای نصب نیاز به کمک دارید؟
               </p>
-              <NuxtLink to="/services">
+              <NuxtLink
+                :to="`/services/${route.params.id}/peymankar?id=${route.query.id}`"
+              >
                 <button
                   class="bg-primary rounded py-2 font-[dana-demi] text-xs px-2"
                 >
@@ -150,7 +153,10 @@ const changeImage = (file: string) => {
                 v-if="first_price.off_percent"
                 >{{ first_price.off_percent }}%</span
               >
-              <p class="font-[dana-bold] text-lg mr-2 text-text-gray">
+              <p
+                class="font-[dana-bold] text-lg mr-2 text-text-gray"
+                v-if="first_price.off_percent"
+              >
                 {{ toPersianCurrency(first_price.off_price) }}
               </p>
             </div>
@@ -159,12 +165,15 @@ const changeImage = (file: string) => {
             </p>
           </div>
 
-          <div class="flex mt-10 justify-between items-center">
-            <p class="text-[#ED0000] text-sm">
+          <div class="flex mt-10 justify-between items-center flex-end">
+            <p
+              class="text-[#ED0000] text-sm w-full"
+              v-if="first_price.quantity_in_stock"
+            >
               تنها {{ first_price.quantity_in_stock }} عدد در انبار باقی مانده
             </p>
             <button
-              class="bg-primary rounded py-3 px-4 font-[dana-bold] text-[20px]"
+              class="bg-primary rounded py-3 px-4 font-[dana-bold] text-[20px] w-full"
             >
               افزودن به سبد خرید
             </button>

@@ -1,11 +1,9 @@
 <script setup lang="ts">
-import tem3 from '@/assets/images/temp/3.png'
 import BlogCard from '@/components/shared/Cards/BlogCard/index.vue'
 import CommentItem from '@/components/shared/CommentItem/index.vue'
 import { getBlogData } from '@/logics/specifics/blog.handler'
 import { type blogItem, type blogList } from '@/core/types/blog.type'
 import { useRoute } from 'vue-router'
-import { getPersianYear } from '@/logics/shared/date.handler'
 import { getBlogList } from '@/logics/specifics/blog.handler'
 
 const route = useRoute()
@@ -65,7 +63,7 @@ onBeforeMount(async () => {
 
       <div class="w-px h-6 bg-sec-gray mx-2"></div>
       <p class="mr-2 text-sm text-text-gray">
-        تاریخ {{ blogData.persian_created_at }}
+         {{ blogData.persian_created_at }}
       </p>
     </div>
     <div class="w-full h-img mt-4">
@@ -82,7 +80,7 @@ onBeforeMount(async () => {
         <BlogCard
           :img="item.thumbnail"
           :title="item.title"
-          :date="item.updated_at"
+          :date="item.persian_created_at"
           :id="1"
           v-for="item in blogListData.results.slice(0, 2)"
           :key="item.id"

@@ -25,7 +25,7 @@ const props = defineProps<productCardProps>()
         {{ props.productData.title }}
       </p>
       <div class="flex items-center justify-between">
-        <div>
+        <div v-if="props.productData.first_price?.off_price">
           <span class="bg-[#B80000] p-1 rounded-lg text-white text-sm"
             >{{ props.productData.first_price?.off_percent }}%</span
           >
@@ -42,7 +42,7 @@ const props = defineProps<productCardProps>()
           </p>
           <p
             class="font-[dana-extra] text-sm text-[#105100] mr-5"
-            v-if="props.productData.price[0]"
+            v-if="props.productData.first_price?.off_price"
           >
             {{ toPersianCurrency(props.productData.first_price?.off_price) }}
           </p>

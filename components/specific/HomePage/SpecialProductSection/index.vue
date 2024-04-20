@@ -17,16 +17,20 @@ const props = defineProps<productProps>()
         بیشترین فروش
       </h3>
       <div class="mt-10 flex flex-col gap-y-6">
-        <MiniProductCard
-          v-for="pr in props.product.bestsellings"
-          :key="pr.title"
-          :name="pr.title"
-          :price="pr.first_price.price"
-          :img="pr.thumbnail"
-          :discount="pr.first_price.off_percent ? true : false"
-          :priceAfterDiscount="pr.first_price.off_price"
-        />
-        <NuxtLink :to="`/product`">
+        <NuxtLink
+          :to="`/product/${props.product.title}?id=${props.product.id}`"
+        >
+          <MiniProductCard
+            v-for="pr in props.product.bestsellings"
+            :key="pr.title"
+            :name="pr.title"
+            :price="pr.first_price.price"
+            :img="pr.thumbnail"
+            :discount="pr.first_price.off_percent ? true : false"
+            :priceAfterDiscount="pr.first_price.off_price"
+          />
+        </NuxtLink>
+        <NuxtLink :to="`/product`" target="_blank">
           <p>مشاهده همه</p>
         </NuxtLink>
       </div>
@@ -47,7 +51,7 @@ const props = defineProps<productProps>()
           :discount="pr.first_price.off_percent ? true : false"
           :priceAfterDiscount="pr.first_price.off_price"
         />
-        <NuxtLink :to="`/product`">
+        <NuxtLink :to="`/product`" target="_blank">
           <p>مشاهده همه</p>
         </NuxtLink>
       </div>
@@ -68,7 +72,7 @@ const props = defineProps<productProps>()
           :discount="pr.first_price.off_percent ? true : false"
           :priceAfterDiscount="pr.first_price.off_price"
         />
-        <NuxtLink :to="`/product`">
+        <NuxtLink :to="`/product`" target="_blank">
           <p>مشاهده همه</p>
         </NuxtLink>
       </div>
