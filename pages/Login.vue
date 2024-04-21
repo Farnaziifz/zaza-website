@@ -1,9 +1,20 @@
 <script setup lang="ts">
 import Logo from '@/assets/images/logo.svg'
+import { sendOtp } from '@/logics/specifics/auth.handler'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
+const phoneNumber = ref()
 definePageMeta({
   layout: 'none!',
 })
+const submitNumber = async () => {
+  const res = await sendOtp(phoneNumber.value)
+  if (res.status === 'OTP has been sent.') {
+    router.push('/otp')
+    localStorage.setItem('pn', phoneNumber.value)
+  }
+}
 </script>
 
 <template>
@@ -18,11 +29,12 @@ definePageMeta({
         لطفا شماره موبایل یا ایمیل خود را وارد کنید
       </p>
       <input
-        type="number"
         class="w-[300px] lg:w-[400px] border-2 border-primary focus:outline-none py-3 mt-4 rounded indent-2"
+        v-model="phoneNumber"
       />
       <button
         class="w-[300px] lg:w-[400px] block p-4 bg-primary rounded focus:outline-none text-white mt-10"
+        @click="submitNumber"
       >
         ارسال کد تایید
       </button>
