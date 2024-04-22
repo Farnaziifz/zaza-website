@@ -21,7 +21,7 @@ const checkOtpLength = async () => {
       _.toNumber(otpCode.value)
     )
     if (res.status) {
-      router.push('/dashbord')
+      router.push('/dashboard/orders')
     }
   }
 }

@@ -1,12 +1,16 @@
 <script setup lang="ts">
 import { ref, type Ref, onBeforeMount } from 'vue'
-import serach from '../Icons/serach.vue'
-import user from '../Icons/user.vue'
-import basket from '../Icons/basket.vue'
 import MegaMenu from '@/components/shared/MegaMenu/index.vue'
 import { getCategoryList } from '@/logics/specifics/category.handler'
 import { type categoryList } from '@/core/types/category.type'
+
+type MenuProps = {
+  showWelcome: boolean
+}
+
+const props = defineProps<MenuProps>()
 const isShowMenu = ref(false)
+
 const categoryData: Ref<categoryList> = ref({
   count: 0,
   total_pages: 0,
@@ -15,7 +19,6 @@ const categoryData: Ref<categoryList> = ref({
   current_page: 1,
   results: [],
 })
-
 const toggleMenu = () => {
   isShowMenu.value = true
 }
@@ -144,6 +147,7 @@ onBeforeMount(async () => {
         </div>
       </div>
       <div
+        v-if="props.showWelcome"
         class="lg:hidden bg-primary flex items-center justify-center py-3 font-[dana-extra] text-[24px]"
       >
         به زازا کالا خوش آمدید
