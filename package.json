@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@fortawesome/vue-fontawesome": "^3.0.6",
+    "@neshan-maps-platform/mapbox-gl-vue": "^1.0.0",
+    "@neshan-maps-platform/vue3-openlayers": "^2.0.1",
     "axios": "^1.6.8",
     "jalali-moment": "^3.3.11",
     "lodash": "^4.17.21",

@@ -15,12 +15,11 @@ onBeforeMount(() => {
   phoneNumber.value = localStorage.getItem('pn')
 })
 const checkOtpLength = async () => {
-  if (otpCode.value.length === 4) {
-    const res = await confirmOtp(
-      _.toNumber(phoneNumber.value),
-      _.toNumber(otpCode.value)
-    )
-    if (res.status) {
+  if (otpCode.value.length === 5) {
+    const res = await confirmOtp(phoneNumber.value, otpCode.value)
+    if (res.id) {
+      localStorage.setItem('access', res.tokens?.access)
+      localStorage.setItem('refresh', res.tokens?.refresg)
       router.push('/dashboard/orders')
     }
   }
@@ -42,12 +41,13 @@ watch(otpCode, () => {
       <input
         @change="checkOtpLength"
         v-model="otpCode"
-        maxlength="4"
+        maxlength="5"
         class="w-[300px] text-center lg:w-[400px] border-2 border-primary focus:outline-none py-3 mt-4 rounded indent-2"
       />
       <Timer />
       <button
         class="w-[300px] lg:w-[400px] block p-4 bg-primary rounded focus:outline-none text-white mt-2"
+        @click="checkOtpLength"
       >
         ورود
       </button>
